@@ -1,0 +1,19 @@
+title: Actualités
+icon: folder-open
+
+options:
+  preview: true
+  status: true
+  template: false
+  url: true
+  delete: true
+
+pages:
+  template: article
+  # NOTE: using index field to display subpages
+  hide: true
+
+files: false
+
+fields:
+  _list: _list

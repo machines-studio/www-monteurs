@@ -1,0 +1,28 @@
+.articles {
+  max-width: 70rem;
+
+  li {
+    display: flex;
+    flex-direction: column;
+
+    & + li {
+      margin-top: var(--space-2);
+    }
+
+    .label {
+      margin-bottom: var(--space-0);
+    }
+
+    h2 {
+      @include font('h1');
+      margin-bottom: var(--space-0);
+    }
+
+    .readmore {
+      @include font('menu');
+      margin-top: var(--space-0);
+      color: var(--color-accent);
+      text-align: right;
+    }
+  }
+}

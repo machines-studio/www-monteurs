@@ -1,0 +1,113 @@
+:root {
+  --menu-height: 7.2rem;
+}
+
+.menu {
+  @include no-select;
+
+  position: sticky;
+  z-index: var(--z-menu);
+  top: 0;
+
+  width: 100%;
+  padding: var(--space-gutter);
+
+  color: var(--color-white);
+
+  background: var(--color-black);
+
+  &:hover &__item a:not(.is-active, :hover) {
+    color: var(--color-lightgray);
+  }
+
+  &,
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-gutter);
+  }
+
+  &__items {
+    width: column-span(4);
+
+    @media (max-width: 1350px) {
+      width: auto;
+    }
+
+    @include narrow {
+      position: fixed;
+      z-index: var(--z-menu);
+      top: var(--menu-height);
+      right: 0;
+      left: 0;
+
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-0);
+      padding: var(--space-gutter);
+
+      background: var(--color-black);
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        background: rgba(0 0 0 / 50%);
+        backdrop-filter: blur(1rem);
+      }
+    }
+  }
+
+  &__item {
+    @include font('menu');
+
+    @include narrow {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+
+      svg {
+        width: auto;
+        height: 1em;
+        margin-top: var(--space-gutter);
+      }
+    }
+
+    a {
+      @include easing(color);
+    }
+  }
+
+  label[for='toggle-menu'] {
+    display: none;
+    cursor: pointer;
+
+    @include mobile { display: block; }
+  }
+
+  #toggle-menu:checked ~ & label[for='toggle-menu'] svg:first-child,
+  #toggle-menu:not(:checked) ~ & label[for='toggle-menu'] svg:last-child {
+    display: none;
+  }
+
+  #toggle-menu:not(:checked) ~ & &__items {
+    @include narrow {
+      display: none; // WIP
+    }
+  }
+}
+
+#toggle-menu {
+  display: none;
+}
+
+body:has(#toggle-menu:checked) {
+  overflow: hidden;
+}

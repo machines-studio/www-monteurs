@@ -1,8 +1,15 @@
 .prose {
   hyphens: manual;
 
+  h1 {
+    @include font('h1');
+  }
+
+  // WIP h2 h3 h4 h5 h6 font-size
+
+  .prose,
   h1, h2, h3, h4, h5, h6,
-  p, ol, ul, li {
+  p, ol, ul {
     &:not(:last-child) {
       margin-bottom: 1em;
     }
@@ -16,5 +23,32 @@
   ol {
     padding-left: 1em;
     list-style: numeric outside;
+  }
+
+  li {
+    margin-bottom: 0.4em;
+  }
+
+  &:has(a:hover) :not(a) {
+    // WIP
+    color: var(--color-lightgray);
+  }
+
+  table {
+    @include font('table');
+    width: 100%;
+    margin-block: var(--space-gutter);
+    border-collapse: collapse;
+
+    @include print {
+      page-break-inside: avoid;
+    }
+
+    th, td {
+      padding: var(--space-0);
+      text-align: left;
+      vertical-align: middle;
+      border: 1.5px solid var(--color-accent);
+    }
   }
 }

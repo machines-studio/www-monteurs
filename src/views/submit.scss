@@ -1,0 +1,74 @@
+:root {
+  --help-font-size: var(--attachments-font-size);
+  --help-line-height: var(--attachments-line-height);
+}
+
+main[data-barba-namespace='submit'] {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-gutter);
+    max-width: 70rem;
+  }
+
+  .field {
+    --color-accent: var(--color-lightgray);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-0);
+
+    &.honey {
+      position: absolute;
+      left: -9999px;
+    }
+
+    &:focus-within, &:hover {
+      --color-accent: var(--color-black);
+    }
+  }
+
+  label {
+    @include easing(color);
+    @include font('label');
+    display: block;
+    color: var(--color-accent);
+  }
+
+  &:has([required]) label::after {
+    content: '\2009*';
+  }
+
+  input, textarea {
+    @include easing(border-color);
+    all: unset;
+    padding: var(--space-0);
+    border: 1.5px solid var(--color-accent);
+    border-radius: 2px;
+  }
+
+  [readonly] {
+    color: var(--color-lightgray);
+    border-color: var(--color-lightgray);
+    border-style: dotted;
+  }
+
+  ::placeholder {
+    color: var(--color-lightgray);
+  }
+
+  .help {
+    @include easing(color);
+    @include font('help');
+    margin-bottom: var(--space-0);
+    color: var(--color-accent);
+  }
+
+  input[type='submit'] {
+    @include font('label');
+    width: auto;
+    margin-left: auto;
+    color: var(--color-white);
+    background: var(--color-black);
+  }
+}

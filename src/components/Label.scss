@@ -1,0 +1,9 @@
+.label {
+  @include font('label');
+  display: flex;
+  color: var(--color-accent);
+
+  time:has(+ *)::after {
+    content: '—\00A0';
+  }
+}

@@ -7,6 +7,7 @@
 
 <main
   data-barba='container'
+  data-uri='<?= ($page->parents()->first() ?? $page)?->slug() ?>'
   data-barba-namespace='<?= $view = $page->intendedTemplate()->name() ?>'
   data-title='<?= snippet('html/title', [], true) ?>'
 >

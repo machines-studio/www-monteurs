@@ -1,0 +1,19 @@
+title: Default
+icon: files-o
+hide: false
+pages: false
+files: true
+options:
+  delete: false
+  url: false
+  status: false
+  preview: false
+
+fields:
+  previewfiles:
+    type: previewfiles
+
+  title:
+    label: Titre
+    type:  text
+    readonly: true

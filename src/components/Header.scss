@@ -1,0 +1,30 @@
+.header {
+  --header-background: var(--color-accent);
+  --header-color: var(--color-white);
+
+  padding-block: var(--space-2);
+  padding-inline: var(--space-gutter);
+  padding-left: column-start(2);
+  background: var(--header-background);
+
+  @include mobile {
+    padding: var(--space-gutter);
+  }
+
+  &, * {
+    color: var(--header-color) !important;
+    text-decoration-color: var(--header-color) !important;
+  }
+
+  > * {
+    max-width: 70rem;
+  }
+
+  &__title {
+    @include font('h1');
+  }
+
+  &__content {
+    margin-top: var(--space-gutter);
+  }
+}

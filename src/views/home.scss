@@ -1,0 +1,98 @@
+:root {
+  --xl-font-size: clamp(4rem, 10vw, 20rem);
+  --xl-line-height: 87%;
+  --xl-font-weight: bold;
+
+  --l-font-size: clamp(4rem, 7vw, 20rem);
+  --l-line-height: 90%;
+  --l-font-weight: bold;
+
+  --m-font-size: clamp(4rem, 6vw, 20rem);
+  --m-line-height: 90%;
+  --m-font-weight: bold;
+}
+
+main[data-barba-namespace='home'] {
+  background: var(--color-black);
+
+  .pinned__page {
+    max-width: 100vw;
+    max-width: 100svw;
+    padding: var(--space-gutter);
+    background: var(--color-accent);
+
+    &, * {
+      color: var(--color-white);
+    }
+
+    h2 {
+      @include font('l');
+      overflow-wrap: break-word;
+      padding-bottom: 0.1em;
+    }
+
+    &[data-size='large'] h2 { @include font('xl'); }
+
+    &.has-cover {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-gutter);
+
+      @include mobile { grid-template-columns: 1fr; }
+      &[data-size='large'] { grid-template-columns: 1fr; }
+
+      h2 {
+        @include font('m');
+        padding-right: var(--space-gutter); // Better ragged lines
+      }
+
+      &[data-size='large'] h2 { @include font('l'); }
+    }
+
+    .label {
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--space-0);
+    }
+
+    figcaption { display: none; }
+  }
+
+  .members {
+    padding: var(--space-gutter);
+
+    &, * {
+      color: var(--color-white);
+    }
+
+    header {
+      @include font('label');
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-gutter);
+
+      a:last-child::before {
+        content: '+';
+        margin-right: 0.5em;
+      }
+    }
+
+    &__items {
+      display: flex;
+      gap: var(--space-gutter);
+    }
+
+    &__item {
+      flex: 1;
+    }
+
+    figure {
+      height: 100%;
+      aspect-ratio: 120/160;
+    }
+
+    figcaption {
+      display: none;
+    }
+  }
+}

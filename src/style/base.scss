@@ -1,15 +1,31 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scroll-padding-top: calc(var(--menu-height) + var(--space-2));
 }
 
 body {
   @include font('body');
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   color: var(--color-black);
   background: var(--color-white);
-}
 
-main {
-  padding: var(--space-gutter);
+  &::after {
+    @include debug-view {
+      content: '';
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+
+      background-image: linear-gradient(to right, transparent var(--space-gutter), red 0);
+      background-size: calc((100vw - var(--space-gutter)) / 6);
+      opacity: 0.1;
+    }
+  }
 }
 
 a {
@@ -22,12 +38,17 @@ a {
     text-decoration-line: underline;
     text-underline-offset: inherit;
     text-decoration-thickness: inherit;
-    text-decoration-color: currentcolor;
+    text-decoration-color: var(--color-accent);
   }
 
   &[href^='tel:'] {
     text-decoration: none;
   }
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 figure {
@@ -51,4 +72,8 @@ figure {
   figcaption:empty {
     display: none;
   }
+}
+
+.label {
+  @include font('label');
 }

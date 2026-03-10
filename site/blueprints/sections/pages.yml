@@ -1,0 +1,8 @@
+type: pages
+
+layout: list
+search: true
+image:
+  query: false
+  cover: true
+  back: white

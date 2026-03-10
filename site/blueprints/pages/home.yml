@@ -1,0 +1,37 @@
+title: Accueil
+icon: home
+
+fields:
+  pinned:
+    label: Actualités à la une
+    type: structure
+
+    columns:
+      page:
+        width: 3/5
+      color:
+        width: 1/5
+      cover:
+        width: 1/5
+      large:
+        width: 1/5
+
+    fields:
+      page:
+        extends: fields/pages
+        multiple: false
+        query: site.find('actualites').children.listed
+
+      color: fields/color
+
+      cover:
+        label: Image de couverture
+        type: toggle
+
+      large:
+        label: Taille
+        type: toggle
+        default: false
+        text:
+          - normal
+          - large

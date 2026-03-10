@@ -1,0 +1,9 @@
+label: Blocs
+type: blocks
+
+fieldsets:
+  # TODO citation, questions
+  - writer
+  - markdown
+  - image
+  - video

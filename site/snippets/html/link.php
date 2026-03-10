@@ -7,6 +7,12 @@
 
   $item ??= null; // $item contains the whole object passed to a snippet
 
+  // Handle Kirby uuid representations
+  if ($item instanceof \Kirby\Content\Field && $item->value) {
+    if (str_starts_with($item->value, 'page://')) $item = $item->toPage();
+    else if (str_starts_with($item->value, 'file://')) $item = $item->toFile();
+  }
+
   if ($item instanceof \Kirby\Cms\Page) {
     echo Html::a($item->url(), $item->title(), [
       'class' => r($item->isOpen() || $item->isActive(), 'is-active'),
@@ -18,12 +24,17 @@
             : '_blank'
           )
     ]);
+  } else if ($item instanceof \Kirby\Cms\File) {
+    echo Html::a($item->url(), tt('link.download', ['filename' => $item->nicename()->or($item->filename())]), [
+      'download' => $item->filename()
+    ]);
   } else {
     $url ??= null;
     if (!trim($url ?? '')) return
 
     $title ??= $url ?? null;
-    $active ??= $active ?? false;
+    $active ??= false;
+    $escape ??= true;
 
     $attributes ??= [];
     if ($active) $attributes['class'] = ($attributes['class'] ?? '') . ' is-active';

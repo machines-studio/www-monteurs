@@ -1,0 +1,8 @@
+label: Couleur
+translate: false
+
+mode: options
+default: '#000'
+options:
+  type: query
+  query: kirby.option('colors')

@@ -1,19 +1,76 @@
 .article {
-  width: 80rem;
-  max-width: 75ch;
-  margin-inline: auto;
-  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: column-span(2) column-span(4);
+  gap: var(--space-gutter);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-gutter);
+  padding-bottom: var(--space-3);
 
   @include mobile {
-    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 
-  &__title {
-    @include font('title');
-    margin-bottom: 1em;
+  &__sidebar {
+    @include font('toc');
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-gutter);
+
+    @include mobile {
+      padding: var(--space-gutter);
+      padding-top: 0;
+      background: var(--color-accent);
+      height: min-content;
+
+      &, * {
+        color: var(--color-white) !important;
+      }
+    }
+
+    > *:first-child {
+      position: sticky;
+      top: calc(var(--menu-height) + var(--space-2));
+
+      @include mobile {
+        position: relative;
+        top: unset;
+      }
+    }
+
+    > *:last-child {
+      position: sticky;
+      bottom: var(--space-gutter);
+
+      @include mobile {
+        position: relative;
+        bottom: unset;
+      }
+    }
+
+    a {
+      color: var(--color-lightgray);
+    }
+
+    a:hover,
+    a.is-active {
+      color: var(--color-accent);
+    }
+
+    .attachments {
+      @include font('attachments');
+    }
   }
 
-  &__footer {
-    margin-top: var(--space-gutter);
+  &__content {
+    @include mobile {
+      padding: var(--space-gutter);
+    }
+
+    .prose {
+      max-width: 70rem;
+    }
   }
 }

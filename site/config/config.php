@@ -4,6 +4,20 @@ include_once 'helpers.php';
 date_default_timezone_set('Europe/Paris');
 
 return [
+  'debug' => false,
+  'cache' => true,
+  'smartypants' => true,
+
+  'colors' => [
+    '#000',
+    '#2F312F',
+    '#4200FA',
+    '#38B4FF',
+    '#00BE40',
+    '#FFB400',
+    '#F83053',
+  ],
+
   'date' => [
     'handler' => 'intl',
     'formats' => [
@@ -43,28 +57,46 @@ return [
   ],
 
   'panel' => [
-    'menu' => function ($kirby) {
-      return [
-        'site' => [
-          'label' => 'Accueil',
-          'current' => function () : bool {
-            $links = ['site'];
-            $path  = Kirby\Cms\App::instance()->path();
-            return Str::contains($path, 'site');
-          }
-        ],
-        // Add pages here if needed
-        // 'projects' => menu($kirby, 'projects'),
-        '-',
-        'users',
-        'languages',
-        'system'
-      ];
-    }
+    'menu' => fn ($kirby) => array_merge([
+      'site' => [
+        'label' => 'Site',
+        'icon' => 'smile',
+        'current' => function () : bool {
+          $links = ['site'];
+          $path  = Kirby\Cms\App::instance()->path();
+          return Str::contains($path, 'site');
+        }
+      ],
+      'home' => menu($kirby, 'home')
+    ],
+    // Listed
+    (function () use ($kirby) {
+      $items = ['-'];
+      foreach ($kirby->site()->children()->listed() as $group) {
+        $id = $group->slug();
+        $items[$id] = menu($kirby, $id);
+      }
+      return $items;
+    })(),
+    [
+      '-',
+      'users',
+      'languages',
+      'system'
+    ])
   ],
 
   'sitemap' => [
-    'ignore' => ['error']
+    'ignore' => [
+      'home',
+      'feed',
+      'bac-a-sable',
+      'annoncer-une-actualite',
+      'sitemap',
+      'erreur',
+      'error',
+      'backups'
+    ]
   ],
 
   'routes' => [
@@ -75,6 +107,14 @@ return [
           'pages' => site()->pages()->index(),
           'ignore' => kirby()->option('sitemap.ignore', ['error'])
         ], true);
+        return new Kirby\Cms\Response($content, 'application/xml');
+      }
+    ],
+
+    [ // RSS
+      'pattern' => ['feed', 'rss', 'feed.rss'],
+      'action'  => function () {
+        $content = snippet('html/feed', [], true);
         return new Kirby\Cms\Response($content, 'application/xml');
       }
     ],

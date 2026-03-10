@@ -1,0 +1,13 @@
+title: Default
+icon: file-code-o
+hide: true
+pages: false
+files: false
+
+fields:
+  translations: _translation
+
+  title:
+    label: Titre
+    type:  text
+    readonly: true

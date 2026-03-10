@@ -8,10 +8,16 @@ toolbar:
     - italic
     - strike
     - link
-    - email
     - '|'
     - clear
-  nodes:
-    - paragraph
-    - bulletList
-    - orderedList
+
+nodes:
+  - heading
+  - paragraph
+  - bulletList
+  - orderedList
+
+headings:
+  - 1
+  - 2
+  - 3
