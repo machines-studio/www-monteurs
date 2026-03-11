@@ -5,9 +5,9 @@
   color: var(--color-white);
   background: var(--color-black);
 
-  &:hover &__link a:not(.is-active, :hover) {
-    color: var(--color-lightgray);
-  }
+  .hoverable { @include easing((color, opacity)); }
+  .has-hover .hoverable:not(:hover) { color: var(--color-lightgray); }
+  .has-hover .hoverable:has(figure):not(:hover) { opacity: 0.5; }
 
   &,
   &__links,
@@ -27,9 +27,5 @@
     @include mobile {
       min-width: 33vw;
     }
-  }
-
-  a {
-    @include easing(color);
   }
 }

@@ -26,16 +26,19 @@ main[data-barba-namespace='submit'] {
     &:focus-within, &:hover {
       --color-accent: var(--color-black);
     }
+
+    &.has-error {
+      --color-accent: var(--color-red);
+    }
   }
 
   label {
     @include easing(color);
     @include font('label');
     display: block;
-    color: var(--color-accent);
   }
 
-  &:has([required]) label::after {
+  .field:has([required]) label::after {
     content: '\2009*';
   }
 
@@ -57,11 +60,18 @@ main[data-barba-namespace='submit'] {
     color: var(--color-lightgray);
   }
 
+  .error {
+    font-weight: bold;
+    color: var(--color-red);
+    &:empty { display: none; }
+  }
+
   .help {
     @include easing(color);
     @include font('help');
     margin-bottom: var(--space-0);
-    color: var(--color-accent);
+    color: var(--color-lightgray);
+    &:empty { display: none; }
   }
 
   input[type='submit'] {

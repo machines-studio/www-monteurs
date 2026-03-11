@@ -20,10 +20,10 @@
     gap: var(--space-gutter);
 
     @include mobile {
+      height: min-content;
       padding: var(--space-gutter);
       padding-top: 0;
       background: var(--color-accent);
-      height: min-content;
 
       &, * {
         color: var(--color-white) !important;
@@ -51,6 +51,7 @@
     }
 
     a {
+      @include easing(color);
       color: var(--color-lightgray);
     }
 

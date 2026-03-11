@@ -16,9 +16,8 @@
 
   background: var(--color-black);
 
-  &:hover &__item a:not(.is-active, :hover) {
-    color: var(--color-lightgray);
-  }
+  .hoverable { @include easing((color, opacity)); }
+  .has-hover .hoverable:not(:hover) { color: var(--color-lightgray); }
 
   &,
   &__items {
@@ -89,7 +88,7 @@
     display: none;
     cursor: pointer;
 
-    @include mobile { display: block; }
+    @include narrow { display: block; }
   }
 
   #toggle-menu:checked ~ & label[for='toggle-menu'] svg:first-child,

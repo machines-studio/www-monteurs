@@ -1,3 +1,5 @@
+$hover-links-actionables: p, li;
+
 .prose {
   hyphens: manual;
 
@@ -15,6 +17,18 @@
     }
   }
 
+  #{$hover-links-actionables} { @include easing(color); }
+  &.has-hover :is(#{$hover-links-actionables}):not(.hoverable:hover) { color: var(--color-lightgray); }
+
+  .hoverable {
+    @include easing(color);
+    display: inline-block;
+
+    &:hover {
+      color: var(--color-black);
+    }
+  }
+
   ul {
     padding-left: 1em;
     list-style: disc outside;
@@ -27,11 +41,6 @@
 
   li {
     margin-bottom: 0.4em;
-  }
-
-  &:has(a:hover) :not(a) {
-    // WIP
-    color: var(--color-lightgray);
   }
 
   table {

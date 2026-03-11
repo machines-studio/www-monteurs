@@ -1,5 +1,6 @@
 import { bootstrap } from '/core/Barba'
 import mediaReady from '/utils/media-ready'
+import hoverLinks from '/controllers/hover-links'
 
 ;(async () => {
   bootstrap({
@@ -21,6 +22,8 @@ import mediaReady from '/utils/media-ready'
     },
 
     afterEnter: async next => {
+      hoverLinks()
+
       // Update manually as Barba payload does not include <header>
       document.title = next.container.dataset.title
 

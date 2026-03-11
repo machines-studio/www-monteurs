@@ -82,6 +82,9 @@ main[data-barba-namespace='home'] {
       gap: var(--space-gutter);
     }
 
+    .hoverable { @include easing(opacity); }
+    .has-hover .hoverable:not(:hover) { opacity: 0.5; }
+
     &__item {
       flex: 1;
     }

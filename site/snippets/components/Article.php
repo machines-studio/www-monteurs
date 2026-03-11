@@ -1,6 +1,6 @@
 <?php
-  $sidebar = $sidebar ?? $slots->sidebar() ?? null;
-  $content = $content ?? $slots->content() ?? null;
+  $sidebar ??= $slots->sidebar() ?? null;
+  $content ??= $slots->content() ?? null;
 
   $attributes ??= [];
   $attributes['class'] = 'article ' . ($attributes['class'] ?? '');

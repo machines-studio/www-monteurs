@@ -1,6 +1,5 @@
 <?php snippet('components/Header', [
   'title' => $page->title(),
-  'label' => null, // WIP
   'content' => $page->description()->kirbytext()
 ]) ?>
 
