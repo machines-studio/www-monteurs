@@ -6,13 +6,15 @@ import hoverLinks from '/controllers/hover-links'
   bootstrap({
     views: [
       await import('/views/default'),
-      await import('/views/search')
+      await import('/views/search'),
+      await import('/views/submit')
     ],
 
     components: {
       // Outside barba wrapper
       global: [
         await import('/components/Menu'),
+        await import('/components/Photoswipe')
       ],
 
       // Inside barba wrapper

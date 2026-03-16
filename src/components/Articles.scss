@@ -1,11 +1,11 @@
 .articles {
   max-width: 70rem;
 
-  li {
+  &__entry {
     display: flex;
     flex-direction: column;
 
-    & + li {
+    & + .articles__entry {
       margin-top: var(--space-2);
     }
 
@@ -16,6 +16,12 @@
     h2 {
       @include font('h1');
       margin-bottom: var(--space-0);
+    }
+
+    figure {
+      margin-top: var(--space-0);
+      margin-bottom: var(--space-gutter);
+      figcaption { display: none; }
     }
 
     .readmore {

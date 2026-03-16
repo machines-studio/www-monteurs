@@ -9,6 +9,7 @@ return [
 
   'translations' => [
     'sitemap' => 'Sitemap',
-    'menu.go-home' => 'Go to homepage'
+    'menu.go-home' => 'Go to homepage',
+    'translation' => 'En Français'
   ]
 ];

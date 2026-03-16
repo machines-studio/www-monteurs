@@ -28,6 +28,11 @@ body {
   }
 }
 
+main {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
 a {
   -webkit-tap-highlight-color: rgba(255 255 255 / 0%);
   color: inherit;
@@ -46,11 +51,6 @@ a {
   }
 }
 
-main {
-  display: grid;
-  grid-template-rows: auto 1fr;
-}
-
 figure {
   img {
     @include no-select;
@@ -60,13 +60,22 @@ figure {
     object-position: var(--focus-x, 50%) var(--focus-y, 50%);
   }
 
-  img[data-lazyload][data-decoded='true'] {
-    opacity: 1;
+  img[loading='lazy'], video {
+    @media (scripting: enabled) {
+      @include easing(opacity);
+      opacity: 0;
+      &.is-loaded { opacity: 1; }
+    }
   }
 
   img[data-photoswipe] {
     cursor: pointer;
     cursor: zoom-in;
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
   }
 
   figcaption:empty {

@@ -5,41 +5,41 @@
    * snippet('html/link', ['url' => 'https://example.com', 'title' => 'Example', 'attributes' => []]);
    */
 
-  $item ??= null; // $item contains the whole object passed to a snippet
+  $link ??= $item ?? null; // $link contains the whole object passed to a snippet
 
   // Handle Kirby uuid representations
-  if ($item instanceof \Kirby\Content\Field && $item->value) {
-    if (str_starts_with($item->value, 'page://')) $item = $item->toPage();
-    else if (str_starts_with($item->value, 'file://')) $item = $item->toFile();
+  if ($link instanceof \Kirby\Content\Field && $link->value) {
+    if (str_starts_with($link->value, 'page://')) $link = $link->toPage();
+    else if (str_starts_with($link->value, 'file://')) $link = $link->toFile();
   }
 
-  if ($item instanceof \Kirby\Cms\Page) {
-    echo Html::a($item->url(), $item->title(), [
-      'class' => r($item->isOpen() || $item->isActive(), 'is-active'),
-      'target' => Str::startsWith($item->url(), $site->url())
+  if ($link instanceof \Kirby\Cms\Page) {
+    echo Html::a($link->url(), $link->title(), [
+      'class' => r($link->isOpen() || $link->isActive(), 'is-active'),
+      'target' => Str::startsWith($link->url(), $site->url())
         ? null
         : (
-          Str::startsWith($item->url(), '#')
+          Str::startsWith($link->url(), '#')
             ? null
             : '_blank'
           )
     ]);
-  } else if ($item instanceof \Kirby\Cms\File) {
-    echo Html::a($item->url(), tt('link.download', ['filename' => $item->nicename()->or($item->filename())]), [
-      'download' => $item->filename()
+  } else if ($link instanceof \Kirby\Cms\File) {
+    echo Html::a($link->url(), tt('link.download', ['filename' => $link->nicename()->or($link->filename())]), [
+      'download' => $link->filename()
     ]);
   } else {
-    $url ??= null;
+    $url ??= $link;
     if (!trim($url ?? '')) return
 
-    $title ??= $url ?? null;
+    $text ??= $url ?? null;
     $active ??= false;
     $escape ??= true;
 
     $attributes ??= [];
     if ($active) $attributes['class'] = ($attributes['class'] ?? '') . ' is-active';
-    if (!Str::startsWith($url, $site->url()) && !Str::startsWith($url, '#')) $attributes['target'] = '_blank';
+    if (!isset($attributes['target']) && !Str::startsWith($url, $site->url()) && !Str::startsWith($url, '#')) $attributes['target'] = '_blank';
 
-    echo Html::a($url, [$title ?? $url], $attributes);
+    echo Html::a($url, [$text ?? $url], $attributes);
   }
 ?>

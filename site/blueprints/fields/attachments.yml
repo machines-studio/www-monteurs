@@ -5,3 +5,5 @@ type: structure
 fields:
   link:
     type: link
+  text:
+    type: text

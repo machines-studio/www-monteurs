@@ -1,0 +1,68 @@
+:root {
+  --pswp-icon-color: var(--color-white);
+  --pswp-icon-color-secondary: var(--color-white);
+}
+
+.pswp {
+  color: var(--color-white);
+
+  &__bg {
+    background-color: var(--color-black);
+  }
+
+  &__icn-shadow {
+    display: none;
+  }
+
+  &__button.pswp__button { // Increase specificity
+    display: grid;
+    width: auto;
+    height: auto;
+
+    svg {
+      position: relative;
+      inset: auto;
+      width: var(--space-2);
+      margin: 0;
+      color: var(--color-white);
+    }
+
+    &.pswp__button--close {
+      padding: var(--space-1);
+      margin-right: 0;
+    }
+
+    &.pswp__button--arrow {
+      padding: var(--space-2);
+    }
+
+    &.pswp__button--arrow--prev {
+      left: 0;
+      padding-left: var(--space-1);
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &.pswp__button--arrow--next {
+      right: 0;
+      padding-right: var(--space-1);
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+
+  &--one-slide &__button--arrow {
+    display: none;
+  }
+
+  &__counter {
+    @include font('tag');
+    margin: var(--space-1);
+    font-variant-numeric: tabular-nums;
+    text-shadow: none;
+  }
+}

@@ -1,0 +1,10 @@
+extends: pages/articles
+
+tabs:
+  content:
+    columns:
+      right:
+        sections:
+          pages:
+            extends: sections/pages
+            sortBy: date DESC

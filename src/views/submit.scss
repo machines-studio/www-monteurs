@@ -50,6 +50,10 @@ main[data-barba-namespace='submit'] {
     border-radius: 2px;
   }
 
+  textarea {
+    overflow: hidden;
+  }
+
   [readonly] {
     color: var(--color-lightgray);
     border-color: var(--color-lightgray);

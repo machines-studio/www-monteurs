@@ -1,9 +1,3 @@
 label: Brouillons
-type: pages
+extends: sections/pages
 status: drafts
-
-layout: list
-image:
-  query: false
-  icon: draft
-  back: white

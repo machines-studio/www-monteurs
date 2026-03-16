@@ -6,4 +6,15 @@
   time:has(+ *)::after {
     content: '—\00A0';
   }
+
+  &__categories {
+    display: flex;
+  }
+
+  &__category:has(+ &__category)::after {
+    content: ',\00A0';
+  }
+
+  :is(time, &__category) { @include easing(opacity); }
+  &.has-hover :is(time, &__category):not(:hover) { opacity: 0.3; }
 }

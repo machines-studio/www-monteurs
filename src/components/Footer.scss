@@ -23,6 +23,15 @@
     }
   }
 
+  a {
+    position: relative;
+    display: block;
+
+    &::after {
+      @include hitbox(var(--space-0));
+    }
+  }
+
   &__partner {
     @include mobile {
       min-width: 33vw;

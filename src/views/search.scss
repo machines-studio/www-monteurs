@@ -1,6 +1,10 @@
 main[data-barba-namespace='search'] {
   // Define the view layout, override components, etc…
 
+  .header__content {
+    margin-top: var(--space-0);
+  }
+
   form {
     @include font('h1');
     position: relative;

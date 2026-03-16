@@ -2,4 +2,6 @@
 
 sections:
   drafts: sections/drafts
-  pages: sections/pages
+  pages:
+    extends: sections/pages
+    status: published

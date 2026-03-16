@@ -1,6 +1,7 @@
 const SELECTOR = [
   '.prose',
   '.menu__items',
+  '.articles__entry .label',
   '.members__items',
   '.footer__links',
   '.footer__partners',

@@ -24,6 +24,10 @@
     @include font('h1');
   }
 
+  > .label {
+    margin-bottom: var(--space-0);
+  }
+
   &__content {
     margin-top: var(--space-gutter);
   }

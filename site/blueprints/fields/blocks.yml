@@ -2,8 +2,9 @@ label: Blocs
 type: blocks
 
 fieldsets:
-  # TODO citation, questions
   - writer
+  - quote
+  - interview
   - markdown
   - image
   - video

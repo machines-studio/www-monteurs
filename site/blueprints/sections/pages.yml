@@ -5,4 +5,4 @@ search: true
 image:
   query: false
   cover: true
-  back: white
+  back: transparent

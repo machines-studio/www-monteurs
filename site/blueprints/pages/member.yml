@@ -1,0 +1,37 @@
+extends: pages/article
+
+tabs:
+  content:
+    columns:
+      left:
+        fields:
+          date:
+            disabled: true
+          showDate: false
+          categories: false
+          token:
+            label: Clé de sécurité
+            extends: fields/raw
+          diffusion: fields/raw
+          team:
+            label: Équipe
+            extends: fields/raw
+          copyright:
+            label: Copyright de l’image
+            extends: fields/raw
+          comment:
+            label: Commentaire
+            extends: fields/raw
+
+      right:
+        width: 2/3
+        fields:
+          description:
+            label: Chapô (optionnel)
+            type: writer
+
+          blocks:
+            label: Synopsis
+
+          attachments: fields/attachments
+

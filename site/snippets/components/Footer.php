@@ -6,14 +6,14 @@
 
     [
       'url' => $site->newsletter(),
-      'title' => t('footer.newsletter')
+      'text' => t('footer.newsletter')
     ],
 
     page('sitemap'),
 
     [
       'url' => '/feed',
-      'title' => t('footer.feed'),
+      'text' => t('footer.feed'),
     ],
 
     page('credits')
@@ -35,7 +35,10 @@
     <?php foreach ($partners as $partner) : ?>
       <li class='footer__partner'>
         <a href='<?= $partner->url() ?>' target='_blank' title='<?= $partner->text()->html() ?>'>
-          <?php snippet('html/image', ['image' => $partner->image()->toFile()]) ?>
+          <?php snippet('html/image', [
+            'image' => $partner->image()->toFile(),
+            'lazyload' => false
+          ]) ?>
         </a>
       </li>
     <?php endforeach ?>

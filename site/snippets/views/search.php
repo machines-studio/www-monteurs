@@ -12,12 +12,15 @@
   ]);
 ?>
 
-<?php snippet('components/Header', [
+<?php snippet('views/articles', [
+  'pages' => $pages,
+  'archives' => false,
+  'title' => false,
   'label' => $query
     ? tc('search.count', $pages->count()) . ' ' . tt('search.query', ['query' => $query])
     : $page->title(),
 ], slots: true) ?>
-  <?php slot('content') ?>
+  <?php slot('header') ?>
     <form>
       <input
         type='search'
@@ -31,10 +34,5 @@
       </button>
     </form>
   <?php endslot() ?>
-<?php endsnippet() ?>
 
-<?php snippet('components/Article', slots: true) ?>
-  <?php slot('content') ?>
-    <?php snippet('components/Articles', ['pages' => $pages]) ?>
-  <?php endslot() ?>
 <?php endsnippet() ?>

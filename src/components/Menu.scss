@@ -81,6 +81,12 @@
 
     a {
       @include easing(color);
+      position: relative;
+      display: block;
+
+      &::after {
+        @include hitbox(var(--space-gutter));
+      }
     }
   }
 
@@ -98,7 +104,7 @@
 
   #toggle-menu:not(:checked) ~ & &__items {
     @include narrow {
-      display: none; // WIP
+      display: none;
     }
   }
 }

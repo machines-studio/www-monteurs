@@ -3,11 +3,9 @@ $hover-links-actionables: p, li;
 .prose {
   hyphens: manual;
 
-  h1 {
-    @include font('h1');
+  & + .prose {
+    margin-top: 1em;
   }
-
-  // WIP h2 h3 h4 h5 h6 font-size
 
   .prose,
   h1, h2, h3, h4, h5, h6,
@@ -15,6 +13,16 @@ $hover-links-actionables: p, li;
     &:not(:last-child) {
       margin-bottom: 1em;
     }
+  }
+
+  h1 {
+    @include font('h1');
+    &:not(:first-child) { margin-top: var(--space-2); }
+  }
+
+  h2 {
+    font-size: 110%;
+    text-transform: uppercase;
   }
 
   #{$hover-links-actionables} { @include easing(color); }
@@ -43,6 +51,40 @@ $hover-links-actionables: p, li;
     margin-bottom: 0.4em;
   }
 
+  figure {
+    margin-block: var(--space-2);
+    &:first-child { margin-top: 0; }
+
+    figcaption {
+      @include font('caption');
+      margin-top: var(--space-0);
+      color: var(--color-lightgray);
+    }
+  }
+
+  &:is(blockquote),
+  blockquote {
+    @include font('quote');
+    padding-left: var(--space-gutter);
+    margin-block: var(--space-2);
+    border-left: 3px solid var(--color-accent);
+
+    footer {
+      @include font('caption');
+      margin-top: var(--space-gutter);
+      color: var(--color-darkgray);
+      text-align: right;
+    }
+  }
+
+  pre {
+    padding: var(--space-gutter);
+    margin-block: 1em;
+    white-space: pre-wrap;
+    background: rgba(0 0 0 / 10%);
+    border-radius: 3px;
+  }
+
   table {
     @include font('table');
     width: 100%;
@@ -58,6 +100,50 @@ $hover-links-actionables: p, li;
       text-align: left;
       vertical-align: middle;
       border: 1.5px solid var(--color-accent);
+    }
+  }
+
+  hr {
+    margin-block: var(--space-2);
+    border: 0;
+    border-top: 1.5px solid var(--color-accent);
+  }
+
+  &.interview {
+    margin-block: var(--space-gutter);
+
+    &:first-child { margin-top: 0; }
+
+    h6 {
+      @include font('body');
+      display: inline-block;
+      margin: 0;
+
+      font-size: 90%;
+      font-weight: bold;
+      color: var(--color-accent);
+      text-transform: uppercase;
+
+      &::after {
+        content: '\2009\00A0';
+      }
+
+      & + p {
+        display: inline;
+      }
+    }
+
+    p { margin-bottom: 0; }
+    p + p { margin-top: var(--space-0); }
+
+    .question {
+      margin-bottom: var(--space-gutter);
+      font-weight: bold;
+    }
+
+    .answer {
+      padding-left: var(--space-gutter);
+      h6 { margin-left: calc(-1 * var(--space-gutter)); }
     }
   }
 }

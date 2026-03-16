@@ -3,6 +3,7 @@
   if (!$item) return;
 
   $date = $item->showDate()->bool() ? $item->date() : null;
+  $categories = $item->categories()->split();
 ?>
 
 <aside class='label'>
@@ -12,14 +13,14 @@
     </time>
   <?php endif ?>
 
-  <ul class='label__categories'>
-    <?php foreach ($item->categories()->split() as $category) : ?>
-      <li class='label__category'>
-        <?php snippet('html/category', [
+  <?php if (count($categories)) : ?>
+    <ul class='label__categories'>
+      <?php foreach ($categories as $category) : ?>
+        <li class='label__category'><?php snippet('html/category', [
           'slug' => $category,
           'parent' => $item->parent()
-        ]) ?>
-      </li>
-    <?php endforeach ?>
-  </ul>
+        ]) ?></li>
+      <?php endforeach ?>
+    </ul>
+  <?php endif ?>
 </aside>

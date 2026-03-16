@@ -4,24 +4,24 @@
 ]) ?>
 
 <?php
-  $image = $kirby->request()->files()->get('image');
+  $image = $kirby->request()->files()->get('cover');
   $fields = [
-    // 'email' => [
-    //   'label' => 'e-mail',
-    //   'type' => 'email',
-    //   'value' => get('email'),
-    //   'rule' => ['required' => true, 'email' => true],
-    //   'error' => 'Merci d’entrer un e-mail valide'
-    // ],
+    'email' => [
+      'label' => 'e-mail',
+      'type' => 'email',
+      'value' => get('email'),
+      'rule' => ['required' => true, 'email' => true],
+      'error' => 'Merci d’entrer un e-mail valide'
+    ],
 
-    // 'token' => [
-    //   'label' => 'clé de sécurité',
-    //   'type' => 'text',
-    //   'value' => get('token'),
-    //   'rule' => ['required' => true, 'same' => $page->token()->value()],
-    //   'help' => 'La clé de sécurité vous a été communiqué par e-mail au moment de votre adhésion ou ré-adhésion',
-    //   'error' => $page->unauthorized()->value()
-    // ],
+    'token' => [
+      'label' => 'clé de sécurité',
+      'type' => 'text',
+      'value' => get('token'),
+      'rule' => ['required' => true, 'same' => $page->token()->value()],
+      'help' => 'La clé de sécurité vous a été communiqué par e-mail au moment de votre adhésion ou ré-adhésion',
+      'error' => $page->unauthorized()->value()
+    ],
 
     'title' => [
       'label' => 'titre',
@@ -31,57 +31,59 @@
       'error' => 'Merci d’entrer un titre'
     ],
 
-    // 'diffusion' => [
-    //   'label' => 'diffusion',
-    //   'type' => 'text',
-    //   'value' => get('diffusion'),
-    //   'rule' => ['required' => true],
-    //   'placeholder' => 'En salle, festival, chaîne de télévision, plateforme…',
-    //   'error' => 'Merci d’indiquer les modalités de diffusion'
-    // ],
+    'diffusion' => [
+      'label' => 'diffusion',
+      'type' => 'text',
+      'value' => get('diffusion'),
+      'rule' => ['required' => true],
+      'placeholder' => 'En salle, festival, chaîne de télévision, plateforme…',
+      'error' => 'Merci d’indiquer les modalités de diffusion'
+    ],
 
-    // 'date' => [
-    //   'type' => 'date',
-    //   'help' => 'Date de la sortie ou de la diffusion',
-    //   'value' => get('date'),
-    //   'rule' => ['required' => true],
-    //   'error' => 'Merci d’entrer une date valide'
-    // ],
+    'date' => [
+      'type' => 'date',
+      'help' => 'Date de la sortie ou de la diffusion',
+      'value' => get('date'),
+      'rule' => ['required' => true],
+      'error' => 'Merci d’entrer une date valide'
+    ],
 
-    // 'team' => [
-    //   'label' => 'Équipe',
-    //   'tag' => 'textarea',
-    //   'help' => 'Indiquez le réalisateur ou la réalisatrice, votre nom et votre fonction, ainsi que les membres de l’équipe montage et de la postproduction que vous souhaitez citer',
-    //   'value' => get('team'),
-    //   'rule' => ['required' => true],
-    //   'error' => 'Merci de rensigner le champ'
-    // ],
+    'team' => [
+      'label' => 'Équipe',
+      'tag' => 'textarea',
+      'help' => 'Indiquez le réalisateur ou la réalisatrice, votre nom et votre fonction, ainsi que les membres de l’équipe montage et de la postproduction que vous souhaitez citer',
+      'value' => get('team'),
+      'rule' => ['required' => true],
+      'error' => 'Merci de rensigner le champ'
+    ],
 
-    // 'synopsis' => [
-    //   'tag' => 'textarea',
-    //   'value' => get('synopsis'),
-    //   'rule' => ['required' => true],
-    //   'error' => 'Merci de rensigner le champ'
-    // ],
+    'blocks' => [
+      'label' => 'Synopsis',
+      'tag' => 'textarea',
+      'value' => get('blocks'),
+      'rule' => ['required' => true],
+      'error' => 'Merci de rensigner le champ'
+    ],
 
-    // 'image' => [
-    //   'type' => 'file',
-    //   'accept' => 'image/*',
-    //   'help' => 'Minimum 800 pixels de largeur au format JPG',
-    //   'value' => $image['name'] ?? null
-    // ],
+    'cover' => [
+      'label' => 'Image',
+      'type' => 'file',
+      'accept' => 'image/*',
+      'help' => 'Minimum 800 pixels de largeur au format JPG',
+      'value' => $image['name'] ?? null
+    ],
 
-    // 'copyright' => [
-    //   'label' => 'Copyright de l’image',
-    //   'value' => get('copyright')
-    // ],
+    'copyright' => [
+      'label' => 'Copyright de l’image',
+      'value' => get('copyright')
+    ],
 
-    // 'comment' => [
-    //   'type' => 'textarea',
-    //   'label' => 'Commentaire',
-    //   'help' => 'Pour nous laisser un commentaire en cas de besoin',
-    //   'value' => get('comment')
-    // ]
+    'comment' => [
+      'type' => 'textarea',
+      'label' => 'Commentaire',
+      'help' => 'Pour nous laisser un commentaire en cas de besoin',
+      'value' => get('comment')
+    ]
   ];
 
   // Check form
@@ -105,7 +107,10 @@
       $member = page('actualite-des-adherents')->createChild([
         'slug' => Str::slug($fields['title']['value'] . '-' . time()),
         'template' => 'member',
-        'content'  => array_map(fn ($field) => $field['value'] ?? null, $fields)
+        'content'  => [
+          'showDate' => true,
+          ...array_map(fn ($field) => $field['value'] ?? null, $fields)
+        ]
       ]);
 
       if ($image && $image['error'] === 0) {
