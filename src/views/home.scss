@@ -60,6 +60,7 @@ main[data-barba-namespace='home'] {
 
   .members {
     padding: var(--space-gutter);
+    margin-top: auto;
 
     &, * {
       color: var(--color-white);
