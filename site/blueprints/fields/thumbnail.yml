@@ -3,5 +3,6 @@ type: files
 
 translate: false
 uploads: image
+multiple: false
 
 layout: cardlets

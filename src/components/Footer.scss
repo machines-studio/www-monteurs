@@ -36,5 +36,9 @@
     @include mobile {
       min-width: 33vw;
     }
+
+    figure {
+      height: 2em;
+    }
   }
 }

@@ -24,4 +24,12 @@ tabs:
           pages:
             extends: sections/pages
             search: true
+            flip: true
+            status: listed
+            info: "{{ model.categories }}"
+
+          unlisted:
+            label: Pages non listées
+            extends: sections/pages
+            status: unlisted
             info: "{{ model.categories }}"

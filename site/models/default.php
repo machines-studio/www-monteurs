@@ -9,8 +9,8 @@ class DefaultPage extends Page {
   }
 
   public function isTranslated () : Field {
-    $fr = $this->content('fr')->blocks()->value();
-    $en = $this->content('en')->blocks()->value();
+    $fr = $this->content('fr')->blocks()->toBlocks()->toHtml();
+    $en = $this->content('en')->blocks()->toBlocks()->toHtml();
     return new Field($this, 'isTranslated', $fr !== $en);
   }
 }
