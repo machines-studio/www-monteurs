@@ -12,7 +12,7 @@
   ]);
 ?>
 
-<?php snippet('views/articles', [
+<?php snippet('views/pages', [
   'pages' => $pages,
   'archives' => false,
   'title' => false,
@@ -34,5 +34,4 @@
       </button>
     </form>
   <?php endslot() ?>
-
 <?php endsnippet() ?>

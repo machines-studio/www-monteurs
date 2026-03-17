@@ -70,6 +70,8 @@
   <?php endslot() ?>
 
   <?php slot('content') ?>
-    <?php snippet('components/Articles', ['pages' => $pages]) ?>
+    <?php foreach ($pages as $page) {
+      snippet(["components/cards/" . $page->intendedTemplate()->name(), 'components/cards/Page'], compact('page'));
+    } ?>
   <?php endslot() ?>
 <?php endsnippet() ?>

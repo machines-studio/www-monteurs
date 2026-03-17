@@ -11,7 +11,7 @@
   data-barba-namespace='<?= $view = $page->intendedTemplate()->name() ?>'
   data-title='<?= snippet('html/title', [], true) ?>'
 >
-  <?php snippet(["views/$view", 'views/default']) ?>
+  <?php snippet(["views/$view", 'views/default'], ['pages' => $page->children()->listed()]) ?>
 </main>
 
 <?php

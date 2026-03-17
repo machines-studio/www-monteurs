@@ -78,13 +78,14 @@
 
 @import '/style/base';
 @import '/components/Article';
-@import '/components/Articles';
 @import '/components/Footer';
 @import '/components/Header';
 @import '/components/Label';
 @import '/components/Menu';
 @import '/components/Photoswipe';
-@import '/views/default';
+@import '/components/cards/Page';
+@import '/components/cards/Page.Publication';
 @import '/views/home';
 @import '/views/search';
 @import '/views/submit';
+@import '/views/pages';

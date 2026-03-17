@@ -1,12 +1,11 @@
 <?php
 
-use Kirby;
 use Kirby\Cms\Page;
 use Kirby\Content\Field;
 
-class ArticlePage extends Page {
+class DefaultPage extends Page {
   public function year () : string {
-    return $this->date()->toDate(option('date.formats.year'));
+    return $this->date()->toDate(option('date.formats.year')) ?? '';
   }
 
   public function isTranslated () : Field {

@@ -1,4 +1,4 @@
-extends: pages/articles
+extends: pages/pages
 
 tabs:
   content:

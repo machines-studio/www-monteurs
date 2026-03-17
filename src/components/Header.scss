@@ -7,6 +7,10 @@
   padding-left: column-start(2);
   background: var(--header-background);
 
+  @include narrow {
+    padding-left: column-start(3, 12);
+  }
+
   @include mobile {
     padding: var(--space-gutter);
   }

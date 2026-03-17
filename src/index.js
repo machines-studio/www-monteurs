@@ -5,7 +5,6 @@ import hoverLinks from '/controllers/hover-links'
 ;(async () => {
   bootstrap({
     views: [
-      await import('/views/default'),
       await import('/views/search'),
       await import('/views/submit')
     ],

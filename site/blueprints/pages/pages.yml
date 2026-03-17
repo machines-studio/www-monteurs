@@ -17,7 +17,11 @@ tabs:
           fields:
             fields:
               description:
-                  label: Chapô (optionnel)
-                  type: writer
+                label: Chapô (optionnel)
+                type: writer
+
           drafts: sections/drafts
-          pages: sections/pages
+          pages:
+            extends: sections/pages
+            search: true
+            info: "{{ model.categories }}"

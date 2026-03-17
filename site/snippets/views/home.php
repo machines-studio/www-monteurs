@@ -27,7 +27,9 @@
         </h2>
       </div>
 
-      <?php snippet('html/image', ['image' => $cover]) ?>
+      <a href='<?= $page->url() ?>'>
+        <?php snippet('html/image', ['image' => $cover]) ?>
+      </a>
     </li>
   <?php endforeach ?>
 </ul>

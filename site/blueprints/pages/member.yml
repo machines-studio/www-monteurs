@@ -1,4 +1,4 @@
-extends: pages/article
+extends: pages/default
 
 tabs:
   content:
@@ -26,12 +26,6 @@ tabs:
       right:
         width: 2/3
         fields:
-          description:
-            label: Chapô (optionnel)
-            type: writer
-
           blocks:
             label: Synopsis
-
-          attachments: fields/attachments
 

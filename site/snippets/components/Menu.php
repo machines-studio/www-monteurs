@@ -17,6 +17,8 @@
 
   <menu class='menu__items'>
     <?php foreach ($site->children()->listed() as $child) : ?>
+      <?php if ($child->isHomepage()) continue ?>
+
       <li class='menu__item'>
         <?php snippet('html/link', $child) ?>
       </li>

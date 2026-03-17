@@ -1,4 +1,3 @@
-title: Article
 extends:
   - presets/tabs
 
@@ -24,6 +23,8 @@ tabs:
           categories:
             label: Catégories
             type: multiselect
+            # HACK populate a help when query is empty, to allow CSS targeting
+            help: "{{ page.parent?.categories.isNotEmpty ? '' : 'hidden' }}"
             options:
               type: query
               query: page.parent?.categories.toStructure ?? []
@@ -33,9 +34,6 @@ tabs:
       right:
         width: 2/3
         fields:
-          description:
-            label: Chapô (optionnel)
-            type: writer
-
+          description: fields/header
           blocks: fields/blocks
           attachments: fields/attachments

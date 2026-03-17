@@ -1,1 +1,8 @@
-/* Write here your custom panel styles */
+/* Hide homepage icon on the site breadcrumb */
+.k-topbar-breadcrumb ol > li:first-child .k-button-icon {
+  display: none;
+}
+
+/* HACK Hide empty categories field, by targeting field with a help prop, populated
+in blueprints only when categories is empty */
+.k-field-name-categories:has(.k-field-footer) { display: none; }

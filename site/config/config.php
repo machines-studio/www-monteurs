@@ -61,14 +61,13 @@ return [
     'menu' => fn ($kirby) => array_merge([
       'site' => [
         'label' => 'Site',
-        'icon' => 'smile',
+        'icon' => 'globe',
         'current' => function () : bool {
           $links = ['site'];
           $path  = Kirby\Cms\App::instance()->path();
           return Str::contains($path, 'site');
         }
-      ],
-      'home' => menu($kirby, 'home')
+      ]
     ],
     // Listed
     (function () use ($kirby) {

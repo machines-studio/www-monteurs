@@ -1,5 +1,6 @@
 <?php
   use \Kirby\Image\Focus;
+  $site ??= site();
   if (!($image ?? null)) return;
 
   $lazyload ??= true;

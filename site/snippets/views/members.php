@@ -1,5 +1,5 @@
 <?php
-  snippet('views/articles', [
+  snippet('views/pages', [
     'pages' => $page->children()->listed()->sortBy('date', 'DESC')
   ], slots: true);
     slot('sidebar');
