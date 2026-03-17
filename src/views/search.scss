@@ -1,0 +1,45 @@
+main[data-barba-namespace='search'] {
+  // Define the view layout, override components, etc…
+
+  .header__content {
+    margin-top: var(--space-0);
+  }
+
+  form {
+    @include font('h1');
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid;
+
+    input[type='search'] {
+      @include font('h1');
+      flex: 1;
+
+      width: unset;
+      min-width: 0;
+
+      color: var(--header-color);
+      text-transform: initial;
+
+      background: unset;
+      border: unset;
+      outline: 0;
+
+      &::placeholder {
+        text-transform: lowercase;
+      }
+    }
+
+    button {
+      all: unset;
+      cursor: pointer;
+
+      svg {
+        width: auto;
+        height: 0.75em;
+      }
+    }
+  }
+
+}

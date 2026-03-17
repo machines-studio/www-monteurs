@@ -1,19 +1,131 @@
+:root {
+  --toc-font-size: 2rem;
+  --toc-font-weight: bold;
+  --toc-text-transform: lowercase;
+
+  --attachments-font-size: 1.6rem;
+  --attachments-font-weight: bold;
+  --attachments-line-height: 120%;
+
+  --archives-font-size: 1.6rem;
+  --archives-font-weight: bold;
+  --archives-line-height: 120%;
+}
+
 .article {
-  width: 80rem;
-  max-width: 75ch;
-  margin-inline: auto;
-  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: column-span(2) column-span(4);
+  gap: var(--space-gutter);
+  padding-block: var(--space-2);
+  padding-inline: var(--space-gutter);
+
+  animation: main-appears var(--easing) forwards;
+
+  @keyframes main-appears {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @include narrow {
+    grid-template-columns: column-span(3, 12) column-span(9, 12);
+  }
 
   @include mobile {
-    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 
-  &__title {
-    @include font('title');
-    margin-bottom: 1em;
+  &__sidebar {
+    @include font('toc');
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--space-gutter);
+    padding-right: var(--space-gutter);
+
+    @include mobile {
+      height: min-content;
+      padding: var(--space-gutter);
+      background: var(--color-accent);
+
+      &, * {
+        color: var(--color-white) !important;
+      }
+    }
+
+    > *:first-child {
+      position: sticky;
+      top: calc(var(--menu-height) + var(--space-2));
+
+      @include mobile {
+        position: relative;
+        top: unset;
+      }
+    }
+
+    > *:last-child {
+      position: sticky;
+      bottom: var(--space-gutter);
+
+      @include mobile {
+        position: relative;
+        bottom: unset;
+      }
+    }
+
+    a {
+      @include easing(color);
+      color: var(--color-lightgray);
+    }
+
+    a:hover,
+    a.is-active {
+      color: var(--color-accent);
+    }
+
+    .attachments {
+      @include font('attachments');
+    }
+
+    details.archives {
+      all: unset;
+    }
+
+    .archives {
+      @include font('archives');
+
+      summary {
+        margin-bottom: var(--space-0);
+      }
+
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-0);
+      }
+    }
   }
 
-  &__footer {
-    margin-top: var(--space-gutter);
+  &__content {
+    max-width: 70rem;
+
+    @include mobile {
+      padding: var(--space-gutter);
+    }
+
+    header .label {
+      margin-bottom: var(--space-0);
+    }
+
+    > figure {
+      margin-bottom: var(--space-gutter);
+
+      figcaption {
+        @include font('caption');
+        margin-top: var(--space-0);
+        color: var(--color-lightgray);
+      }
+    }
   }
 }

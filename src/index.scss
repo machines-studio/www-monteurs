@@ -1,35 +1,91 @@
+@import 'photoswipe/style.css';
 @import '/style/reset';
 @import '/style/fonts';
 @import '/style/prose';
 
 :root {
+  --color-accent: #000; // See below
+
   --color-white: #FFF;
-  --color-black: #222;
+  --color-black: #000;
+  --color-darkgray: #2F312F;
+  --color-lightgray: #A0A0A0;
+  --color-blue: #4200FA;
+  --color-lightblue: #38B4FF;
+  --color-green: #00BE40;
+  --color-yellow: #FFB400;
+  --color-red: #F83053;
 
-  --space-gutter: 2rem;
+  --space-0: 1rem;
+  --space-1: 2rem;
+  --space-2: 4rem;
+  --space-3: 8rem;
+  --space-gutter: var(--space-1);
 
-  --body-font-family: system-ui, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  --z-menu: 9;
+
+  --easing: 200ms;
+
+  --body-font-family: akkurat, sans-serif;
   --body-font-size: 1.8rem;
-  --body-line-height: 130%;
-  --body-text-decoration-thickness: 1px;
-  --body-text-underline-offset: 0.2em;
+  --body-line-height: 1.33;
+  --body-text-decoration-thickness: 1.5px;
+  --body-text-underline-offset: 0.26em;
 
-  --title-font-size: 4.0rem;
-  --title-font-weight: 700;
+  --menu-font-size: 1.6rem;
+  --menu-font-weight: bold;
+  --menu-text-transform: lowercase;
 
-  @include mobile {
-    --title-font-size: 6.0rem;
-    --body-font-size: 2.2rem;
-  }
+  --label-font-size: 1.2rem;
+  --label-font-weight: bold;
+  --label-text-transform: uppercase;
 
-  @include retina {
-    --body-text-decoration-thickness: 15px;
-  }
+  --h1-font-size: 3rem;
+  --h1-font-weight: bold;
+  --h1-text-transform: uppercase;
+  --h1-line-height: 115%;
+
+  --quote-font-size: 2rem;
+  --quote-font-style: italic;
+
+  --caption-font-size: 1.6rem;
+  --caption-font-style: italic;
+
+  [data-uri='actualites'] { --color-accent: var(--color-red); }
+  [data-uri='qui-sommes-nous'] { --color-accent: var(--color-blue); }
+  [data-uri='publications'] { --color-accent: var(--color-green); }
+  [data-uri='salaires-et-conventions'] { --color-accent: var(--color-lightblue); }
+  [data-uri='ressources'] { --color-accent: var(--color-yellow); }
+}
+
+/**
+ * Return the left offset of a column
+ */
+@function column-start ($col, $columns: 6) {
+  $column-width: calc((100vw - var(--space-gutter)) / $columns);
+  @return calc(var(--space-gutter) + $column-width * $col); // stylelint-disable-line at-rule-empty-line-before
+}
+
+/**
+ * Return the width of a column span
+ */
+@function column-span ($col, $columns: 6) {
+  $column-width: calc((100vw - var(--space-gutter)) / $columns);
+  @return calc($column-width * $col - var(--space-gutter)); // stylelint-disable-line at-rule-empty-line-before
 }
 
 /* stylelint-disable no-invalid-position-at-import-rule */
 
 @import '/style/base';
 @import '/components/Article';
-@import '/components/Hello';
-@import '/views/default';
+@import '/components/Footer';
+@import '/components/Header';
+@import '/components/Label';
+@import '/components/Menu';
+@import '/components/Photoswipe';
+@import '/components/cards/Page';
+@import '/components/cards/Page.Publication';
+@import '/views/home';
+@import '/views/search';
+@import '/views/submit';
+@import '/views/pages';

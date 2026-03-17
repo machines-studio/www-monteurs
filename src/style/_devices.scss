@@ -12,6 +12,12 @@ $breakpoint-mobile: 768px;
   }
 }
 
+@mixin narrow {
+  @media (max-width: 1180px) {
+    @content;
+  }
+}
+
 @mixin retina {
   @media (min-resolution: 2x) {
     @content;
@@ -26,6 +32,12 @@ $breakpoint-mobile: 768px;
 
 @mixin debug-view {
   html[data-hash='debug'] & {
+    @content;
+  }
+}
+
+@mixin print {
+  @media print {
     @content;
   }
 }

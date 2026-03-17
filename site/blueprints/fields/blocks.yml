@@ -1,0 +1,10 @@
+label: Blocs
+type: blocks
+
+fieldsets:
+  - writer
+  - quote
+  - interview
+  - markdown
+  - image
+  - video

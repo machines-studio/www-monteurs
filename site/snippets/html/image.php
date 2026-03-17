@@ -1,10 +1,12 @@
 <?php
   use \Kirby\Image\Focus;
+  $site ??= site();
   if (!($image ?? null)) return;
 
   $lazyload ??= true;
   $caption ??= $image->caption()->kirbytext();
   $alt ??= Escape::html($alt ?? ($image->parent()->title() . ' (' . $site->title()) . ')');
+  $photoswipe ??= false;
   $attributes ??= [];
 
   $sizes ??= option('thumbs.sizes.default');
@@ -26,6 +28,10 @@
     'height' => $image->resize(1920)->height(),
     'decoding' => 'async',
     'draggable' => 'false',
+    'data-full-width' => $image->width(),
+    'data-full-height' => $image->height(),
+    'data-full-src' => $image->url(),
+    'data-photoswipe' => $photoswipe,
     'style' => [
       "--focus-x: " . ($focus[0] ?? 0.5) * 100 . '%;',
       '--focus-y: ' . ($focus[1] ?? 0.5) * 100 . '%;'

@@ -1,0 +1,44 @@
+.footer {
+  @include font('menu');
+  justify-content: space-between;
+  padding: var(--space-gutter);
+  color: var(--color-white);
+  background: var(--color-black);
+
+  .hoverable { @include easing((color, opacity)); }
+  .has-hover .hoverable:not(:hover) { color: var(--color-lightgray); }
+  .has-hover .hoverable:has(figure):not(:hover) { opacity: 0.5; }
+
+  &,
+  &__links,
+  &__partners {
+    display: flex;
+    align-items: center;
+    gap: var(--space-gutter);
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-0);
+    }
+  }
+
+  a {
+    position: relative;
+    display: block;
+
+    &::after {
+      @include hitbox(var(--space-0));
+    }
+  }
+
+  &__partner {
+    @include mobile {
+      min-width: 33vw;
+    }
+
+    figure {
+      height: 2em;
+    }
+  }
+}

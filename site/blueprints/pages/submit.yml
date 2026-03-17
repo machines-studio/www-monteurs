@@ -1,0 +1,23 @@
+title: Formulaire annoncer une actualité
+extends: pages/default
+
+tabs:
+  content:
+    columns:
+      left:
+        fields:
+          token:
+            type: text
+          success:
+            type: text
+          fail:
+            type: text
+          unauthorized:
+            type: text
+          date: false
+          showDate: false
+          categories: false
+
+      right:
+        fields:
+          blocks: false

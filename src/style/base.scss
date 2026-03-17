@@ -1,15 +1,36 @@
 html {
   scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scroll-padding-top: calc(var(--menu-height) + var(--space-2));
 }
 
 body {
   @include font('body');
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   color: var(--color-black);
   background: var(--color-white);
+
+  &::after {
+    @include debug-view {
+      content: '';
+
+      position: fixed;
+      inset: 0;
+
+      pointer-events: none;
+
+      background-image: linear-gradient(to right, transparent var(--space-gutter), red 0);
+      background-size: calc((100vw - var(--space-gutter)) / 6);
+      opacity: 0.1;
+    }
+  }
 }
 
 main {
-  padding: var(--space-gutter);
+  display: grid;
+  grid-template-rows: auto 1fr;
 }
 
 a {
@@ -22,7 +43,7 @@ a {
     text-decoration-line: underline;
     text-underline-offset: inherit;
     text-decoration-thickness: inherit;
-    text-decoration-color: currentcolor;
+    text-decoration-color: var(--color-accent);
   }
 
   &[href^='tel:'] {
@@ -39,8 +60,12 @@ figure {
     object-position: var(--focus-x, 50%) var(--focus-y, 50%);
   }
 
-  img[data-lazyload][data-decoded='true'] {
-    opacity: 1;
+  img[loading='lazy'], video {
+    @media (scripting: enabled) {
+      @include easing(opacity);
+      opacity: 0;
+      &.is-loaded { opacity: 1; }
+    }
   }
 
   img[data-photoswipe] {
@@ -48,7 +73,16 @@ figure {
     cursor: zoom-in;
   }
 
+  iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
   figcaption:empty {
     display: none;
   }
+}
+
+.label {
+  @include font('label');
 }

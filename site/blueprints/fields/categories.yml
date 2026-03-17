@@ -1,0 +1,8 @@
+label: Catégories
+type: structure
+fields:
+  title:
+    label: Nom de la catégorie
+    type: text
+
+  description: fields/writer

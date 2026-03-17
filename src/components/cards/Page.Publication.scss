@@ -1,0 +1,52 @@
+.card--publication {
+  display: flex;
+  flex-direction: column;
+
+  h2 {
+    @include font('h1');
+    font-size: var(--body-font-size);
+  }
+
+  figure,
+  .cover-placeholder {
+    aspect-ratio: 21/29.7;
+    margin-bottom: var(--space-0);
+    overflow: hidden;
+  }
+
+  .cover-placeholder {
+    @include no-select;
+
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-gutter);
+    background: var(--card-color-accent, var(--color-accent));
+
+    span {
+      position: absolute;
+      bottom: 0.5em;
+      left: -1ch;
+
+      width: 200%;
+
+      font-size: 12rem;
+      font-weight: normal;
+      line-height: 1em;
+      letter-spacing: 0.5ch;
+      color: var(--color-white);
+      text-transform: uppercase;
+    }
+
+    div {
+      @include font('h1');
+      position: relative;
+      z-index: 1;
+      font-size: 2.4rem;
+
+      svg {
+        margin-bottom: 0.5em;
+      }
+    }
+  }
+}

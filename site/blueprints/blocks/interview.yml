@@ -1,0 +1,26 @@
+title: Question — réponse
+icon: chat
+preview: fields
+wysiwyg: true
+
+fields:
+  expedient:
+    label: ''
+    type: text
+    width: 1/2
+    icon: user
+    before: "De :"
+
+  recipient:
+    label: ''
+    type: text
+    width: 1/2
+    icon: user
+    before: "À :"
+
+  question:
+    extends: fields/writer
+
+  answer:
+    label: Réponse
+    extends: fields/writer

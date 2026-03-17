@@ -1,0 +1,8 @@
+main[data-barba-namespace='pages'] {
+  &[data-uri='publications'] .article__content {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-gutter);
+    max-width: unset;
+  }
+}

@@ -1,0 +1,18 @@
+tabs:
+  content:
+    label: Contenu
+
+  settings: false
+
+  seo:
+    label: SEO
+    sections:
+      seo: sections/seo
+
+  files:
+    label: Fichiers
+    sections:
+      files:
+        label: Fichiers
+        query: model.files.filterBy('template', '!=', 'media')
+        info: "{{ file.niceSize }}"

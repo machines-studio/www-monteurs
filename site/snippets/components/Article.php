@@ -1,37 +1,24 @@
 <?php
+  $sidebar ??= $slots->sidebar() ?? null;
+  $label ??= $slots->label() ?? null;
+  $content ??= $slots->content() ?? null;
+
   $attributes ??= [];
   $attributes['class'] = 'article ' . ($attributes['class'] ?? '');
-
-  $title = $title ?? $slots->title() ?? null;
-  $cover = $cover ?? $slots->cover() ?? null;
-  $content = $content ?? $slots->content() ?? null;
-  $footer = $footer ?? $slots->footer() ?? null;
 ?>
 
-<article <?= attr($attributes) ?>>
-  <header class='article__header'>
-    <?php if ($title) : ?>
-      <h2 class='article__title'><?= $title ?></h2>
-    <?php endif ?>
-  </header>
+<section <?= attr($attributes) ?>>
+  <aside class='article__sidebar'>
+    <?= $sidebar ?>
+  </aside>
 
-  <section class='article__content'>
-    <?php snippet('html/image', [
-      'image' => $cover,
-      'lazyload' => false,
-      'preset' => 'prose',
-      'attributes' => [
-        'class' => 'article__cover'
-      ]
-    ]) ?>
+  <article class='article__content'>
+    <?php if ($label) : ?>
+      <header>
+        <div class='label'><?= $label ?></div>
+      </header>
+    <?php endif ?>
 
     <?= $content ?>
-  </section>
-
-  <?php if ($footer) : ?>
-    <footer class='article__footer'>
-      <?= $footer ?>
-    </footer>
-  <?php endif ?>
-</article>
-
+  </article>
+</section>

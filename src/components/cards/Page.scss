@@ -1,0 +1,30 @@
+.card--page {
+  display: flex;
+  flex-direction: column;
+
+  & + & {
+    margin-top: var(--space-2);
+  }
+
+  .label {
+    margin-bottom: var(--space-0);
+  }
+
+  h2 {
+    @include font('h1');
+    margin-bottom: var(--space-0);
+  }
+
+  figure {
+    margin-top: var(--space-0);
+    margin-bottom: var(--space-gutter);
+    figcaption { display: none; }
+  }
+
+  .readmore {
+    @include font('menu');
+    margin-top: var(--space-0);
+    color: var(--color-accent);
+    text-align: right;
+  }
+}

@@ -1,5 +1,34 @@
-title: Site
+extends: presets/tabs
 
-sections:
-  pages:
-    type: pages
+tabs:
+  content:
+    columns:
+      - width: 2/3
+        sections:
+          menu:
+            extends: sections/pages
+            status: listed
+
+          pages:
+            extends: sections/pages
+            status: unlisted
+
+      - width: 1/3
+        fields:
+          email:
+            type: email
+            translate: false
+
+          newsletter:
+            type: url
+            translate: false
+
+          partners:
+            label: Partenaires
+            type: structure
+            translate: false
+            fields:
+              url:
+                required: true
+              text:
+              image: fields/thumbnail

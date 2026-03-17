@@ -4,9 +4,24 @@ include_once 'helpers.php';
 date_default_timezone_set('Europe/Paris');
 
 return [
+  'debug' => false,
+  'cache' => true,
+  'smartypants' => true,
+
+  'colors' => [
+    '#000',
+    '#2F312F',
+    '#4200FA',
+    '#38B4FF',
+    '#00BE40',
+    '#FFB400',
+    '#F83053',
+  ],
+
   'date' => [
     'handler' => 'intl',
     'formats' => [
+      'year' => intl('yyyy'),
       'file' => intl('yyyyMMdd'),
       'iso' => intl('yyyy-MM-dd'),
       'full' => intl('dd MMMM yyyy')
@@ -43,31 +58,58 @@ return [
   ],
 
   'panel' => [
-    'menu' => function ($kirby) {
-      return [
-        'site' => [
-          'label' => 'Accueil',
-          'current' => function () : bool {
-            $links = ['site'];
-            $path  = Kirby\Cms\App::instance()->path();
-            return Str::contains($path, 'site');
-          }
-        ],
-        // Add pages here if needed
-        // 'projects' => menu($kirby, 'projects'),
-        '-',
-        'users',
-        'languages',
-        'system'
-      ];
-    }
+    'menu' => fn ($kirby) => array_merge([
+      'site' => [
+        'label' => 'Site',
+        'icon' => 'globe',
+        'current' => function () : bool {
+          $links = ['site'];
+          $path  = Kirby\Cms\App::instance()->path();
+          return Str::contains($path, 'site');
+        }
+      ]
+    ],
+    // Listed
+    (function () use ($kirby) {
+      $items = ['-'];
+      foreach ($kirby->site()->children()->listed() as $group) {
+        $id = $group->slug();
+        $items[$id] = menu($kirby, $id);
+      }
+      return $items;
+    })(),
+    [
+      '-',
+      'users',
+      'languages',
+      'system'
+    ])
   ],
 
   'sitemap' => [
-    'ignore' => ['error']
+    'ignore' => [
+      'home',
+      'feed',
+      'bac-a-sable',
+      'annoncer-une-actualite',
+      'sitemap',
+      'erreur',
+      'error',
+      'backups'
+    ]
   ],
 
   'routes' => [
+    [ // Redirect non translated content to fr
+      'pattern' => ['en', 'en/(:all)'],
+      'action' => function ($slug = '') {
+        $page = page($slug);
+        if ($page->isTranslated()->bool()) return $this->next();
+
+        return $page ? go($page->url('fr')) : null;
+      }
+    ],
+
     [ // Sitemap for robots
       'pattern' => ['sitemap.xml', 'sitemap_index.xml'],
       'action'  => function () {
@@ -75,6 +117,14 @@ return [
           'pages' => site()->pages()->index(),
           'ignore' => kirby()->option('sitemap.ignore', ['error'])
         ], true);
+        return new Kirby\Cms\Response($content, 'application/xml');
+      }
+    ],
+
+    [ // RSS
+      'pattern' => ['feed', 'rss', 'feed.rss'],
+      'action'  => function () {
+        $content = snippet('html/feed', [], true);
         return new Kirby\Cms\Response($content, 'application/xml');
       }
     ],
@@ -90,6 +140,14 @@ return [
       'pattern' => '(:all)/panel',
       'action' => function ($uid) {
         if ($page = page($uid)) return go($page->panel()->url());
+        return go('/panel');
+      }
+    ],
+
+    [ // Quick panel access from any page by appending /panel to the url
+      'pattern' => '(fr|en)/(:all)/panel',
+      'action' => function ($lang, $uid) {
+        if ($page = page($uid)) return go($page->panel()->url() . "?language=$lang");
         return go('/panel');
       }
     ]

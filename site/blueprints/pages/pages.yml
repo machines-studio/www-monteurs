@@ -1,0 +1,35 @@
+title: Articles
+icon: folder
+extends:
+ - presets/tabs
+
+tabs:
+  content:
+    columns:
+      left:
+        width: 1/3
+        fields:
+          categories: fields/categories
+
+      right:
+        width: 2/3
+        sections:
+          fields:
+            fields:
+              description:
+                label: Chapô (optionnel)
+                type: writer
+
+          drafts: sections/drafts
+          pages:
+            extends: sections/pages
+            search: true
+            flip: true
+            status: listed
+            info: "{{ model.categories }}"
+
+          unlisted:
+            label: Pages non listées
+            extends: sections/pages
+            status: unlisted
+            info: "{{ model.categories }}"

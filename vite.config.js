@@ -52,6 +52,7 @@ export default ({ mode }) => ({
       watch: [
         '../site/blueprints/**/*.yml',
         '../site/(templates|snippets|controllers|config|models|languages|layouts)/**/*.php',
+        '../site/plugins/**/*.php',
         // '../content/**/*.txt'
       ]
     }),

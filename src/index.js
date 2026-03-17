@@ -1,23 +1,30 @@
 import { bootstrap } from '/core/Barba'
 import mediaReady from '/utils/media-ready'
+import hoverLinks from '/controllers/hover-links'
 
 ;(async () => {
   bootstrap({
     views: [
-      await import('/views/default')
+      await import('/views/search'),
+      await import('/views/submit')
     ],
 
     components: {
       // Outside barba wrapper
-      global: [],
+      global: [
+        await import('/components/Menu'),
+        await import('/components/Photoswipe')
+      ],
 
       // Inside barba wrapper
       local: [
-        await import('/components/Hello'),
+        await import('/components/Article'),
       ]
     },
 
     afterEnter: async next => {
+      hoverLinks()
+
       // Update manually as Barba payload does not include <header>
       document.title = next.container.dataset.title
 
@@ -28,7 +35,7 @@ import mediaReady from '/utils/media-ready'
       }))
 
       // Reset scroll position, handling url hash
-      if (next?.url.hash) next.container.getElementById(next.url.hash)?.scrollIntoView()
+      if (next?.url.hash) next.container.querySelector('#' + next.url.hash)?.scrollIntoView()
       else window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
     }
   })

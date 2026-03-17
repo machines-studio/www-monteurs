@@ -5,7 +5,8 @@
     "php": ">=8.3.0",
     "getkirby/cms": "^5.0",
     "arnoson/kirby-vite": "^5.4.0",
-    "johannschopplich/kirbylog": "^1.4"
+    "johannschopplich/kirbylog": "^1.4",
+    "bnomei/kirby3-feed": "^5.1"
   },
   "config": {
     "allow-plugins": {

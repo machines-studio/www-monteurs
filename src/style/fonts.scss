@@ -1,21 +1,29 @@
 @font-face {
-  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-family: akkurat;
   font-display: auto;
   font-style: normal;
   font-weight: normal;
   src:
-    url('/assets/your-font-regular.woff2') format('woff2'),
-    url('/assets/your-font-regular.woff') format('woff'),
-    url('/assets/your-font-regular.otf') format('opentype');
+    url('/assets/lineto-akkurat-regular.woff2') format('woff2'),
+    url('/assets/lineto-akkurat-regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: your-font; // wrap in single quotes if spaces in the name
+  font-family: akkurat;
   font-display: auto;
   font-style: normal;
   font-weight: bold;
   src:
-    url('/assets/your-font-bold.woff2') format('woff2'),
-    url('/assets/your-font-bold.woff') format('woff'),
-    url('/assets/your-font-bold.otf') format('opentype');
+    url('/assets/lineto-akkurat-bold.woff2') format('woff2'),
+    url('/assets/lineto-akkurat-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: akkurat;
+  font-display: auto;
+  font-style: italic;
+  font-weight: normal;
+  src:
+    url('/assets/lineto-akkurat-italic.woff2') format('woff2'),
+    url('/assets/lineto-akkurat-italic.woff') format('woff');
 }

@@ -1,2 +1,8 @@
+title: Fichier
+
 fields:
-  hidden:
+  nicename:
+    label: Nom du lien
+    type: text
+    placeholder: "{{model.filename}}"
+    help: Utilisé à la place du nom du fichier pour les téléchargements

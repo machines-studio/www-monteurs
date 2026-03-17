@@ -1,0 +1,7 @@
+type: pages
+
+layout: list
+image:
+  query: false
+  cover: true
+  back: transparent
