@@ -1,0 +1,104 @@
+{
+  "assets/lineto-akkurat-bold.woff": {
+    "file": "assets/lineto-akkurat-bold-BDYewa_S.woff",
+    "src": "assets/lineto-akkurat-bold.woff"
+  },
+  "assets/lineto-akkurat-bold.woff2": {
+    "file": "assets/lineto-akkurat-bold-CsTXhJn4.woff2",
+    "src": "assets/lineto-akkurat-bold.woff2"
+  },
+  "assets/lineto-akkurat-italic.woff": {
+    "file": "assets/lineto-akkurat-italic-0n7f0zJZ.woff",
+    "src": "assets/lineto-akkurat-italic.woff"
+  },
+  "assets/lineto-akkurat-italic.woff2": {
+    "file": "assets/lineto-akkurat-italic-DWy_vH3X.woff2",
+    "src": "assets/lineto-akkurat-italic.woff2"
+  },
+  "assets/lineto-akkurat-regular.woff": {
+    "file": "assets/lineto-akkurat-regular-BXBGVogA.woff",
+    "src": "assets/lineto-akkurat-regular.woff"
+  },
+  "assets/lineto-akkurat-regular.woff2": {
+    "file": "assets/lineto-akkurat-regular-9Q58kA79.woff2",
+    "src": "assets/lineto-akkurat-regular.woff2"
+  },
+  "components/Article.js": {
+    "file": "assets/Article-CdK3ZsFo.js",
+    "name": "Article",
+    "src": "components/Article.js",
+    "isDynamicEntry": true
+  },
+  "components/Menu.js": {
+    "file": "assets/Menu-BlZ03HVz.js",
+    "name": "Menu",
+    "src": "components/Menu.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  },
+  "components/Photoswipe.js": {
+    "file": "assets/Photoswipe-BlEuzZ7n.js",
+    "name": "Photoswipe",
+    "src": "components/Photoswipe.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  },
+  "index.js": {
+    "file": "assets/index-CUMljIxC.js",
+    "name": "index",
+    "src": "index.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "views/search.js",
+      "views/submit.js",
+      "components/Menu.js",
+      "components/Photoswipe.js",
+      "components/Article.js"
+    ]
+  },
+  "index.scss": {
+    "file": "assets/index-CxKtwAw6.css",
+    "src": "index.scss",
+    "isEntry": true
+  },
+  "panel.css": {
+    "file": "assets/panel-Czl_JMro.js",
+    "name": "panel",
+    "src": "panel.css",
+    "isEntry": true,
+    "css": [
+      "assets/panel-CRobv84h.css"
+    ]
+  },
+  "panel.js": {
+    "file": "assets/panel-BC29waca.js",
+    "name": "panel",
+    "src": "panel.js",
+    "isEntry": true,
+    "imports": [
+      "panel.css"
+    ]
+  },
+  "views/search.js": {
+    "file": "assets/search-CzaQTAxo.js",
+    "name": "search",
+    "src": "views/search.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  },
+  "views/submit.js": {
+    "file": "assets/submit-yYoo7gDu.js",
+    "name": "submit",
+    "src": "views/submit.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "index.js"
+    ]
+  }
+}

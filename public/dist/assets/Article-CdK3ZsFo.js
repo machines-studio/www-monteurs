@@ -1,0 +1,2 @@
+const c=".article";function i(r){const n=r.querySelectorAll(".article__sidebar .toc li a");return window.addEventListener("scroll",o),o(),{destroy:()=>{window.removeEventListener("scroll",o)}};function o(){let t=null;for(const e of n)e._target??(e._target=r.querySelector(e.hash)),e.classList.remove("is-active"),!(e._target.offsetTop>document.documentElement.scrollTop+window.innerHeight*.25)&&(t=e);t==null||t.classList.add("is-active")}}export{i as hydrate,c as selector};
+//# sourceMappingURL=Article-CdK3ZsFo.js.map

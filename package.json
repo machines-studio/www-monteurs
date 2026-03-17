@@ -36,5 +36,6 @@
     "@barba/prefetch": "^2.2.0",
     "lozad": "^1.16.0",
     "photoswipe": "5.x"
-  }
+  },
+  "version": "2.0.0"
 }
