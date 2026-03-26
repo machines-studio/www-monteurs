@@ -13,7 +13,7 @@
   <?php endif ?>
 
   <?php if (trim($title ?? '')) : ?>
-    <h2 class='header__title'><?= $title ?></h2>
+    <h2 class='header__title'><?= kirbytext($title) ?></h2>
   <?php endif ?>
 
   <?php if (trim($content ?? '')) : ?>
