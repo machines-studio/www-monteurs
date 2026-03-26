@@ -19,6 +19,7 @@
   'label' => $query
     ? tc('search.count', $pages->count()) . ' ' . tt('search.query', ['query' => $query])
     : $page->title(),
+  'cardTemplate' => 'components/cards/Page',
 ], slots: true) ?>
   <?php slot('header') ?>
     <form>

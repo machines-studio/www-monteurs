@@ -17,6 +17,8 @@
   $title ??= ($category ?? $page)->title();
   $label ??= $category ? snippet('html/link', $page, true) : null;
   $header ??= $slots->header() ?? ($category ?? $page)->description()->kirbytext();
+
+  $cardTemplate ??= null;
 ?>
 
 <?php snippet('components/Header', [
@@ -71,7 +73,7 @@
 
   <?php slot('content') ?>
     <?php foreach ($pages as $page) {
-      snippet(["components/cards/" . $page->intendedTemplate()->name(), 'components/cards/Page'], compact('page'));
+      snippet($cardTemplate ?? ["components/cards/" . ucfirst($page->intendedTemplate()->name()), 'components/cards/Page'], compact('page'));
     } ?>
   <?php endslot() ?>
 <?php endsnippet() ?>

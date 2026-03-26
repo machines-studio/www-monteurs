@@ -42,4 +42,9 @@ main[data-barba-namespace='search'] {
     }
   }
 
+  .card[data-template='page.publication'] {
+    figure {
+      display: none;
+    }
+  }
 }

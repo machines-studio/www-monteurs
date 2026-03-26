@@ -2,7 +2,7 @@
   $cover = $page->cover()->toFile();
 ?>
 
-<div class='card card--publication'>
+<div class='card card--publication' data-template='<?= $page->intendedTemplate()->name() ?>'>
   <a href='<?= $page->url() ?>'>
     <?php if ($cover) : ?>
       <?php snippet('html/image', ['image' => $cover]) ?>

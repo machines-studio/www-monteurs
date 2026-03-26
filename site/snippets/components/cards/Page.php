@@ -1,4 +1,4 @@
-<div class='card card--page'>
+<div class='card card--page' data-template='<?= $page->intendedTemplate()->name() ?>'>
   <?php snippet('components/Label', $page) ?>
 
   <h2>
