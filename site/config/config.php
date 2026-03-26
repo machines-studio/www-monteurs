@@ -10,8 +10,6 @@ return [
   'languages' => true,
 
   'colors' => [
-    '#000',
-    '#2F312F',
     '#4200FA',
     '#38B4FF',
     '#00BE40',
