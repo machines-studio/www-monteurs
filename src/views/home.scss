@@ -81,6 +81,11 @@ main[data-barba-namespace='home'] {
     &__items {
       display: flex;
       gap: var(--space-gutter);
+
+      @include mobile {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     .hoverable { @include easing(opacity); }

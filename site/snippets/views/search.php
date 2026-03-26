@@ -1,9 +1,9 @@
 <?php
   $query = esc(get('q') ?? '');
   $pages = $site->search($query, [
-    'minlength' => 3,
+    'minlength' => 2,
     'fields' => ['title', 'blocks', 'description'],
-    'words' => true,
+    'words' => strlen($query ?? '') <= 3,
     'score' => [
       'title' => 128,
       'blocks' => 64,

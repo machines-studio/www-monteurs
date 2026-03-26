@@ -2,6 +2,7 @@
   @include font('menu');
   justify-content: space-between;
   padding: var(--space-gutter);
+  margin-top: -1px; // Fix safari glitch
   color: var(--color-white);
   background: var(--color-black);
 
@@ -32,14 +33,22 @@
     }
   }
 
-  &__partner {
+  &__partners {
     @include mobile {
-      min-width: 33vw;
+      align-items: flex-end;
+      margin-top: var(--space-gutter);
+      margin-left: auto;
     }
+  }
 
+  &__partner {
     img {
       width: auto;
       height: 2em;
+
+      @include mobile {
+        height: 1.5em;
+      }
     }
   }
 }

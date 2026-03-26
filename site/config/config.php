@@ -7,6 +7,7 @@ return [
   'debug' => false,
   'cache' => true,
   'smartypants' => true,
+  'languages' => true,
 
   'colors' => [
     '#000',

@@ -5,7 +5,7 @@
 
   --attachments-font-size: 1.6rem;
   --attachments-font-weight: bold;
-  --attachments-line-height: 120%;
+  --attachments-line-height: 140%;
 
   --archives-font-size: 1.6rem;
   --archives-font-weight: bold;
@@ -96,6 +96,7 @@
       @include font('archives');
 
       summary {
+        @include font('toc');
         margin-bottom: var(--space-0);
       }
 
