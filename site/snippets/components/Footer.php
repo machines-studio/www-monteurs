@@ -9,6 +9,16 @@
       'text' => t('footer.newsletter')
     ],
 
+    [
+      'url' => r($site->facebook()->isNotEmpty(), 'https://facebook.com/' . $site->facebook()),
+      'text' => 'facebook'
+    ],
+
+    [
+      'url' => r($site->instagram()->isNotEmpty(), 'https://instagram.com/' . $site->instagram()),
+      'text' => 'instagram'
+    ],
+
     page('sitemap'),
 
     [
@@ -25,9 +35,11 @@
 <footer class='footer'>
   <ul class='footer__links'>
     <?php foreach ($links as $link) : ?>
-      <li class='footer__link'>
-        <?php snippet('html/link', $link) ?>
-      </li>
+      <?php if (trim($l = snippet('html/link', $link, true))) : ?>
+        <li class='footer__link'>
+          <?= $l ?>
+        </li>
+      <?php endif ?>
     <?php endforeach ?>
   </ul>
 

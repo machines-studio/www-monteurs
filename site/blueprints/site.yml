@@ -15,9 +15,19 @@ tabs:
 
       - width: 1/3
         fields:
-          email:
-            type: email
+          instagram:
+            type: instagram
+            before: https://instagram.com/
+            type: text
             translate: false
+            icon: instagram
+
+          facebook:
+            type: facebook
+            before: https://facebook.com/
+            type: text
+            translate: false
+            icon: facebook
 
           newsletter:
             type: url
