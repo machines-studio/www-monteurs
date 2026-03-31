@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f2a13d3798dab45114f3345c3273c952",
+    "content-hash": "92800ee0635e21f6724bb2c3e810e303",
     "packages": [
         {
             "name": "arnoson/kirby-vite",
@@ -1756,6 +1756,52 @@
                 "source": "https://github.com/sylvainjule/kirby-backups/tree/1.1.0"
             },
             "time": "2025-08-06T19:20:33+00:00"
+        },
+        {
+            "name": "sylvainjule/matomo",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sylvainjule/kirby-matomo.git",
+                "reference": "dde37df8ce4e9d896946cc51f834172ba6ec110b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sylvainjule/kirby-matomo/zipball/dde37df8ce4e9d896946cc51f834172ba6ec110b",
+                "reference": "dde37df8ce4e9d896946cc51f834172ba6ec110b",
+                "shasum": ""
+            },
+            "require": {
+                "getkirby/composer-installer": "^1.1",
+                "guzzlehttp/guzzle": "^7.9"
+            },
+            "type": "kirby-plugin",
+            "extra": {
+                "installer-name": "matomo"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sylvain Julé",
+                    "email": "contact@sylvain-jule.fr"
+                },
+                {
+                    "name": "Sören Engels"
+                },
+                {
+                    "name": "Philipp Trenz",
+                    "email": "mail@philipptrenz.de"
+                }
+            ],
+            "description": "Matomo helpers, panel area and sections for Kirby",
+            "support": {
+                "issues": "https://github.com/sylvainjule/kirby-matomo/issues",
+                "source": "https://github.com/sylvainjule/kirby-matomo/tree/2.1.1"
+            },
+            "time": "2025-08-06T14:29:12+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",

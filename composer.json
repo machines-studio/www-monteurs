@@ -10,7 +10,8 @@
     "distantnative/retour-for-kirby": "^5.6",
     "sylvainjule/backups": "^1.1",
     "getkirby/cli": "^1.9",
-    "bnomei/kirby-janitor": "^5.4"
+    "bnomei/kirby-janitor": "^5.4",
+    "sylvainjule/matomo": "^2.1"
   },
   "config": {
     "allow-plugins": {

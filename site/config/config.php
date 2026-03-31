@@ -81,8 +81,9 @@ return [
       '-',
       'users',
       '-',
-      'retour',
+      'matomo',
       'backups',
+      'retour',
       'languages',
       'system'
     ])
