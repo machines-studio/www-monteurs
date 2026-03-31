@@ -12,20 +12,28 @@ tabs:
           token:
             label: Clé de sécurité
             extends: fields/raw
-          diffusion: fields/raw
-          team:
-            label: Équipe
-            extends: fields/raw
+          email: fields/raw
           copyright:
             label: Copyright de l’image
-            extends: fields/raw
-          comment:
-            label: Commentaire
             extends: fields/raw
 
       right:
         width: 2/3
         fields:
+          diffusion: fields/raw
+
+          team:
+            label: Équipe
+            extends: fields/raw
+
+          comment:
+            label: Commentaire
+            extends: fields/raw
+
+          description:
+            extends: fields/header
+            default: "**Réalisation :**<br>**Montage :**"
+
           blocks:
             label: Synopsis
 

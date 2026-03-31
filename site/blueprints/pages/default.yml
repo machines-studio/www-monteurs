@@ -36,6 +36,9 @@ tabs:
       right:
         width: 2/3
         fields:
+          diffusion: false # See pages/member.yml
+          team: false # See pages/member.yml
+          comment: false # See pages/member.yml
           description: fields/header
           blocks: fields/blocks
           attachments: fields/attachments
