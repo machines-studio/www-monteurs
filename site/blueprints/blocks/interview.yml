@@ -19,6 +19,7 @@ fields:
     before: "À :"
 
   question:
+    label: Question
     extends: fields/writer
 
   answer:
