@@ -86,6 +86,9 @@
 
       &::after {
         @include hitbox(var(--space-gutter));
+        @include narrow {
+          @include hitbox(0.5rem);
+        }
       }
     }
   }
