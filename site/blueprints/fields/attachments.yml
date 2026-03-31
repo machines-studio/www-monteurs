@@ -4,6 +4,8 @@ type: structure
 
 fields:
   link:
+    label: Lien
     type: link
   text:
+    label: Texte
     type: text
