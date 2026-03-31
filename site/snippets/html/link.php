@@ -25,7 +25,7 @@
           )
     ]);
   } else if ($link instanceof \Kirby\Cms\File) {
-    echo Html::a($link->url(), tt('link.download', ['filename' => $link->nicename()->or($link->filename())]), [
+    echo Html::a($link->url(), $text ?? tt('link.download', ['filename' => $link->nicename()->or($link->filename())]), [
       'download' => $link->filename()
     ]);
   } else {
