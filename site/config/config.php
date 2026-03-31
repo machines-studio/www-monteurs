@@ -82,6 +82,7 @@ return [
       'users',
       '-',
       'retour',
+      'backups',
       'languages',
       'system'
     ])

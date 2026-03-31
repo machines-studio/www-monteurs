@@ -7,7 +7,10 @@
     "arnoson/kirby-vite": "^5.4.0",
     "johannschopplich/kirbylog": "^1.4",
     "bnomei/kirby3-feed": "^5.1",
-    "distantnative/retour-for-kirby": "^5.6"
+    "distantnative/retour-for-kirby": "^5.6",
+    "sylvainjule/backups": "^1.1",
+    "getkirby/cli": "^1.9",
+    "bnomei/kirby-janitor": "^5.4"
   },
   "config": {
     "allow-plugins": {
