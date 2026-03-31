@@ -44,6 +44,14 @@
     gap: var(--space-gutter);
     padding-right: var(--space-gutter);
 
+    @include desktop {
+      @include invisible-scroll(y);
+      position: sticky;
+      top: var(--menu-height);
+      max-height: calc(100vh - var(--menu-height));
+      padding-block: var(--space-gutter);
+    }
+
     @include mobile {
       height: min-content;
       padding: var(--space-gutter);
@@ -51,26 +59,6 @@
 
       &, * {
         color: var(--color-white) !important;
-      }
-    }
-
-    > *:first-child {
-      position: sticky;
-      top: calc(var(--menu-height) + var(--space-2));
-
-      @include mobile {
-        position: relative;
-        top: unset;
-      }
-    }
-
-    > *:last-child {
-      position: sticky;
-      bottom: var(--space-gutter);
-
-      @include mobile {
-        position: relative;
-        bottom: unset;
       }
     }
 
@@ -97,13 +85,13 @@
 
       summary {
         @include font('toc');
-        margin-bottom: var(--space-0);
       }
 
       ul {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-0);
+        margin-top: var(--space-0);
       }
     }
   }
