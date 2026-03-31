@@ -3,4 +3,3 @@ image:
   query: page.cover.toFile
   cover: true
   back: white
-

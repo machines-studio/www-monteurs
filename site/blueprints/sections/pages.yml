@@ -1,4 +1,7 @@
 type: pages
+create:
+  - page
+  - page.publication
 
 layout: list
 image:
