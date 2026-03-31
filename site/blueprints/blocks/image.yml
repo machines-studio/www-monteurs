@@ -11,8 +11,6 @@ fields:
       back: black
     uploads:
       template: blocks/image
-    when:
-      location: kirby
 
   caption:
     label: field.blocks.image.caption

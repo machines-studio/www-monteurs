@@ -6,8 +6,6 @@ fields:
     label: field.blocks.video.url.label
     type: url
     placeholder: field.blocks.video.url.placeholder
-    when:
-      location: web
 
   caption:
     label: field.blocks.video.caption
