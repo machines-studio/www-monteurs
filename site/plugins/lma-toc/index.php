@@ -21,7 +21,7 @@ Kirby::plugin('lma/toc', [
   ],
 
   'fieldMethods' => [
-    'toToc' => function ($field, string $headlines = null) : string {
+    'toToc' => function ($field, ?string $headlines = null) : string {
       $blueprint = $field->model()->blueprint();
       $type = $blueprint->field($field->key())['type'] ?? null;
       $value = ($type === 'blocks'

@@ -143,7 +143,7 @@ Kirby::plugin('lma/migration', [
   ]
 ]);
 
-function update (iterable $pages, string $namespace = null, $callback) : mixed {
+function update (iterable $pages, $namespace, $callback) : mixed {
   $kirby = kirby();
   $slugs = [];
   foreach ($kirby->languages() as $language) {
