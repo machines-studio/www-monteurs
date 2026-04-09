@@ -23,7 +23,7 @@ return [
 
     'search.count' => ['Aucun résultat', 'Un résultat', '{ count } résultats'],
     'search.query' => 'pour la recherche « {query} »',
-    'search.placeholder' => 'ciné-club, monteuses, salaire…',
+    'search.placeholder' => 'rechercher…',
 
     'translation' => 'In English'
   ]

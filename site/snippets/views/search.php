@@ -9,7 +9,7 @@
       'blocks' => 64,
       'description' => 64
     ]
-  ]);
+  ])->listed();
 ?>
 
 <?php snippet('views/pages', [
@@ -18,7 +18,7 @@
   'title' => false,
   'label' => $query
     ? tc('search.count', $pages->count()) . ' ' . tt('search.query', ['query' => $query])
-    : $page->title(),
+    : '&nbsp;',
   'cardTemplate' => 'components/cards/Page',
 ], slots: true) ?>
   <?php slot('header') ?>
