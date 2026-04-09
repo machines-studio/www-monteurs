@@ -44,31 +44,32 @@
           </li>
         <?php endforeach ?>
       <?php endif ?>
+
+      <?php if ($archives) : ?>
+        <li class='archives'>
+          <details <?= r(param('archive'), 'open') ?>>
+            <summary>archives</summary>
+            <ul>
+              <?php foreach ($years as $year) : ?>
+                <li>
+                  <?php snippet('html/link', [
+                    'url' => url($page, [
+                      'params' => [
+                        ...params(),
+                        'archive' => $year
+                      ]
+                    ]),
+                    'active' => $year == param('archive', date('Y')),
+                    'text' => $year
+                  ]) ?>
+                </li>
+              <?php endforeach ?>
+            </ul>
+          </details>
+        </li>
+      <?php endif ?>
     </ul>
 
-    <?php if ($archives) : ?>
-      <div class='archives'>
-        <details <?= r(param('archive'), 'open') ?>>
-          <summary>archives</summary>
-          <ul>
-            <?php foreach ($years as $year) : ?>
-              <li>
-                <?php snippet('html/link', [
-                  'url' => url($page, [
-                    'params' => [
-                      ...params(),
-                      'archive' => $year
-                    ]
-                  ]),
-                  'active' => $year == param('archive', date('Y')),
-                  'text' => $year
-                ]) ?>
-              </li>
-            <?php endforeach ?>
-          </ul>
-        </details>
-      </div>
-    <?php endif ?>
   <?php endslot() ?>
 
   <?php slot('content') ?>

@@ -82,6 +82,7 @@
 
     .archives {
       @include font('archives');
+      margin-top: var(--space-gutter);
 
       summary {
         @include font('toc');
