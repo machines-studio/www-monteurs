@@ -1,6 +1,7 @@
 .label {
   @include font('label');
   display: flex;
+  flex-wrap: wrap;
   color: var(--color-accent);
 
   time:has(+ *)::after {
@@ -9,6 +10,7 @@
 
   &__categories {
     display: flex;
+    flex-wrap: wrap;
   }
 
   &__category:has(+ &__category)::after {
