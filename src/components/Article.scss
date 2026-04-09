@@ -50,6 +50,7 @@
       top: var(--menu-height);
       max-height: calc(100vh - var(--menu-height));
       padding-block: var(--space-gutter);
+      margin-bottom: calc(-1 * var(--space-gutter));
     }
 
     @include mobile {
