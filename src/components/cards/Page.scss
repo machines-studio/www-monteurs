@@ -15,6 +15,14 @@
     margin-bottom: var(--space-0);
   }
 
+  .comptes-rendus {
+    color: var(--color-accent);
+
+    &::after {
+      content: '\00A0—';
+    }
+  }
+
   figure {
     margin-top: var(--space-0);
     margin-bottom: var(--space-gutter);

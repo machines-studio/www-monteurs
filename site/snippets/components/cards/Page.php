@@ -2,7 +2,10 @@
   <?php snippet('components/Label', $page) ?>
 
   <h2>
-    <a href='<?= $page->url() ?>'><?= $page->title() ?></a>
+    <a href='<?= $page->url() ?>'>
+      <?php if (in_array('comptes-rendus', $page->categories()->split())) echo Html::span('Compte rendu', ['class' => 'comptes-rendus']) ?>
+      <?= $page->title() ?>
+    </a>
   </h2>
 
   <a href='<?= $page->url() ?>'>
