@@ -30,7 +30,6 @@ $hover-links-actionables: p, li;
 
   .hoverable {
     @include easing(color);
-    display: inline-block;
 
     &:hover {
       color: var(--color-black);
