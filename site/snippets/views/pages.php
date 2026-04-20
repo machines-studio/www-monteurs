@@ -74,10 +74,7 @@
 
   <?php slot('content') ?>
     <?php foreach ($pages as $page) {
-      snippet($cardTemplate ?? ["components/cards/" . ucfirst($page->intendedTemplate()->name()), 'components/cards/Page'], [
-        'page' => $page,
-        'showDate' => $showDate ?? null
-      ]);
+      snippet($cardTemplate ?? ["components/cards/" . ucfirst($page->intendedTemplate()->name()), 'components/cards/Page'], compact('page'));
     } ?>
   <?php endslot() ?>
 <?php endsnippet() ?>

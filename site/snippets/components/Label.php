@@ -1,8 +1,10 @@
 <?php
+  $IS_MEMBER = $item->intendedTemplate() == 'member';
+
   $item ??= null;
   if (!$item) return;
 
-  $showDate ??= $item->showDate()->bool();
+  $showDate ??= $IS_MEMBER || $item->showDate()->bool();
   $date = $item->date();
   $categories = $item->categories()->split();
 ?>
@@ -14,7 +16,13 @@
     </time>
   <?php endif ?>
 
-  <?php if (count($categories)) : ?>
+  <?php if ($IS_MEMBER) : ?>
+    <ul class='label__categories'>
+      <li class='label__category'>
+        <?php snippet('html/link', $item->parent()) ?>
+      </li>
+    </ul>
+  <?php elseif (count($categories)) : ?>
     <ul class='label__categories'>
       <?php foreach ($categories as $category) : ?>
         <li class='label__category'><?php snippet('html/category', [

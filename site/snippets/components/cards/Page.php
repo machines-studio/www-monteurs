@@ -1,5 +1,5 @@
 <div class='card card--page' data-template='<?= $page->intendedTemplate()->name() ?>'>
-  <?php snippet('components/Label', ['item' => $page, 'showDate' => $showDate ?? null]) ?>
+  <?php snippet('components/Label', $page) ?>
 
   <h2>
     <a href='<?= $page->url() ?>'>
