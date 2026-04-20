@@ -28,10 +28,11 @@
 ]) ?>
 
 <?php snippet('components/Article', [
-  'title' => $page->title(),
-  'sidebar' => $slots->sidebar() ?? null
+  'title' => $page->title()
 ], slots: true) ?>
   <?php slot('sidebar') ?>
+    <?= $slots->sidebar() ?>
+
     <ul class='tags'>
       <?php if (count($categories)) : ?>
         <li>
@@ -69,7 +70,6 @@
         </li>
       <?php endif ?>
     </ul>
-
   <?php endslot() ?>
 
   <?php slot('content') ?>

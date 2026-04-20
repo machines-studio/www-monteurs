@@ -1,0 +1,9 @@
+main[data-barba-namespace='members'] {
+  .article__sidebar {
+    display: block;
+
+    .archives {
+      margin-top: var(--space-0);
+    }
+  }
+}
