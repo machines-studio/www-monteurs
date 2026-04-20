@@ -2,9 +2,24 @@ label: Blocs
 type: blocks
 
 fieldsets:
-  - writer
-  - quote
-  - interview
-  - markdown
-  - image
-  - video
+  text:
+    label: Texte
+    type: group
+    fieldsets:
+      - writer
+      - quote
+      - interview
+
+  media:
+    label: Média
+    type: group
+    fieldsets:
+      - image
+      - video
+      - audio
+
+  misc:
+    label: Autre
+    type: group
+    fieldsets:
+      - markdown

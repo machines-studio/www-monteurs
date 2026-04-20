@@ -1,0 +1,16 @@
+name: Audio
+icon: audio
+preview: fields
+wysiwyg: true
+fields:
+  file:
+    label: Fichier audio
+    type: files
+    multiple: false
+    placeholder: field.blocks.video.url.placeholder
+    uploads: audio
+
+  caption:
+    label: field.blocks.video.caption
+    type: writer
+    inline: true

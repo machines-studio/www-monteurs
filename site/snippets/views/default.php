@@ -44,6 +44,9 @@
       'image' => $page->cover()->toFile(),
       'photoswipe' => true
     ]) ?>
-    <?= $page->blocks()->toBlocks() ?>
+
+    <div class='blocks prose'>
+      <?= $page->blocks()->toBlocks() ?>
+    </div>
   <?php endslot() ?>
 <?php endsnippet() ?>
