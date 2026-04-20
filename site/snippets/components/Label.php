@@ -2,12 +2,13 @@
   $item ??= null;
   if (!$item) return;
 
-  $date = $item->showDate()->bool() ? $item->date() : null;
+  $showDate ??= $item->showDate()->bool();
+  $date = $item->date();
   $categories = $item->categories()->split();
 ?>
 
 <aside class='label'>
-  <?php if ($date) : ?>
+  <?php if ($showDate && $date) : ?>
     <time class='label__time' datetime='<?= $date->toDate(option('date.formats.iso'))?>'>
       <?= $date->toDate(option('date.formats.full')) ?>
     </time>

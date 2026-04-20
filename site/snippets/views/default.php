@@ -10,7 +10,10 @@
 
 <?php snippet('components/Header', [
   'title' => $page->title(),
-  'label' => snippet('components/Label', $page, true),
+  'label' => snippet('components/Label', [
+    'item' => $page,
+    'showDate' => $showDate ?? null
+  ], true),
   'content' => $page->description()->kirbytext()
 ]) ?>
 
