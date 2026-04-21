@@ -120,6 +120,14 @@
         ]);
       }
 
+      $kirby->email([
+        'template' => 'submit-notification',
+        'from' => 'no-reply@lma-asso.fr',
+        'to' => 'actualite-des-adherent-es@lma-asso.fr',
+        'subject' => '[Actualité des adhérent·es] Nouvelle actualité en attente de validation',
+        'data' => ['page' => $member]
+      ]);
+
       return snippet('components/Article', ['content' => $page->success()->kirbytext()]);
     } catch (Exception $error) {
       throw $error;
