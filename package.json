@@ -32,8 +32,7 @@
     "vite-plugin-kirby": "^5.0.0"
   },
   "dependencies": {
-    "@barba/core": "^2.10.0",
-    "@barba/prefetch": "^2.2.0",
+    "@barba/core": "2.9.7",
     "lozad": "^1.16.0",
     "photoswipe": "5.x"
   },
