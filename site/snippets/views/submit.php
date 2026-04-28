@@ -104,8 +104,16 @@
   if ($kirby->request()->method() === 'POST' && !$invalid) {
     try {
       $kirby->impersonate('kirby');
+
+      // Avoid duplicates (including drafts)
+      $parent = page('actualite-des-adherents');
+      $baseSlug = Str::slug($fields['title']['value']);
+      $slug = $baseSlug;
+      $count = 2;
+      while ($parent->childrenAndDrafts()->findBy('slug', $slug)) $slug = $baseSlug . '-' . $count++;
+
       $member = page('actualite-des-adherents')->createChild([
-        'slug' => Str::slug($fields['title']['value'] . '-' . time()),
+        'slug' => $slug,
         'template' => 'member',
         'content'  => [
           'showDate' => true,
