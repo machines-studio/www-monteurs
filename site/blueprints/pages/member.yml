@@ -5,8 +5,6 @@ tabs:
     columns:
       left:
         fields:
-          date:
-            disabled: true
           showDate: false
           categories: false
           token:
@@ -20,19 +18,23 @@ tabs:
       right:
         width: 2/3
         fields:
-          diffusion: fields/raw
+          diffusion:
+            extends: fields/raw
+            type: textarea
 
           team:
             label: Équipe
             extends: fields/raw
+            type: textarea
 
           comment:
             label: Commentaire
             extends: fields/raw
+            type: textarea
 
           description:
             extends: fields/header
-            default: "**Réalisation :**<br>**Montage :**"
+            default: "Réalisation :<br>Montage :"
 
           blocks:
             label: Synopsis
