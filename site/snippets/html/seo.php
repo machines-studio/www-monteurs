@@ -20,7 +20,7 @@
 
   $cover = (
     $page->seo_cover()->toFile() ??
-    $page->thumbnail()->toFile() ??
+    $page->cover()->toFile() ??
     $site->seo_cover()->toFile()
   )?->crop(1200, 628);
 
