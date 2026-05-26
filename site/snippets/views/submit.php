@@ -40,10 +40,11 @@
       'error' => 'Merci d’indiquer les modalités de diffusion'
     ],
 
-    'date' => [
+    'release' => [
+      'label' => 'Date',
       'type' => 'date',
       'help' => 'Date de la sortie ou de la diffusion',
-      'value' => get('date'),
+      'value' => get('release'),
       'rule' => ['required' => true],
       'error' => 'Merci d’entrer une date valide'
     ],

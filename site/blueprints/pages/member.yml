@@ -6,6 +6,9 @@ tabs:
       left:
         fields:
           showDate: false
+          release:
+            label: Date de sortie
+            extends: fields/date
           categories: false
           token:
             label: Clé de sécurité
