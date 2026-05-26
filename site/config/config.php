@@ -5,6 +5,7 @@ date_default_timezone_set('Europe/Paris');
 
 return [
   'debug' => false,
+  'panel.vue.compiler' => false,
   'cache' => true,
   'smartypants' => true,
   'languages' => true,
