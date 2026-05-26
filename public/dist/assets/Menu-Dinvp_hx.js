@@ -1,0 +1,2 @@
+import{c as s}from"./index-Ctn9_IjF.js";const f=".menu";function i(n){const t=Array.from(n.querySelectorAll("a")),o=document.querySelector("#toggle-menu");s.hooks.beforeLeave(()=>{o.checked=!1});for(const e of t)e.addEventListener("click",r=>{o.checked=!1});s.hooks.enter(e=>{for(const{url:r,a:l}of t.map(c=>({a:c,url:new URL(c.href)})))l.classList.toggle("is-active",e.next.url.path.startsWith(r.pathname))})}export{i as hydrate,f as selector};
+//# sourceMappingURL=Menu-Dinvp_hx.js.map

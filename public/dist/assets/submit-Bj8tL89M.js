@@ -1,0 +1,2 @@
+import{B as o}from"./index-Ctn9_IjF.js";const a=new o("submit",{beforeEnter:function({next:t}){},afterEnter:function({next:t}){var n;for(const e of(n=t.container)==null?void 0:n.querySelectorAll("textarea"))e.addEventListener("input",()=>{e.style.height="auto",e.style.height=e.scrollHeight+"px"})},beforeLeave:function(){},afterLeave:function(){}});export{a as default};
+//# sourceMappingURL=submit-Bj8tL89M.js.map
